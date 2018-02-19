@@ -1,0 +1,13 @@
+.WorkWrp{
+  height: 100vh;
+  transform: translateY(0);
+  position: absolute;
+  width: 100%;
+  transition: all .8s cubic-bezier(1.000, 0.080, 0.190, 1.015);
+}
+.WorkBackground{
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}

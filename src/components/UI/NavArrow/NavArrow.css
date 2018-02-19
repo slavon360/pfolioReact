@@ -1,0 +1,37 @@
+.NavArrow{
+  width: 46px;
+  height: 46px;
+  margin-bottom: 10px;
+  border-radius: 50%;
+  position: relative;
+  background: #fff;
+  cursor: pointer;
+}
+.NavArrow::before,
+.NavArrow::after{
+  content: "";
+  position: absolute;
+  display: inline-block;
+  height: 16px;
+  width: 1px;
+  background: #525453;
+  transform-origin: 0 0;
+  top: 16px;
+  left: 50%;
+  transition: all .3s;
+}
+.NavArrow::before{
+  transform: rotate(45deg);
+}
+.NavArrow::after{
+  transform: rotate(-45deg);
+}
+.NavArrow:hover::before{
+  transform: rotate(55deg) translate(2px, 1px);
+}
+.NavArrow:hover::after{
+  transform: rotate(-55deg) translate(-2px, 1px);;
+}
+.NavArrowUpsideDown{
+  transform: rotate(180deg);
+}

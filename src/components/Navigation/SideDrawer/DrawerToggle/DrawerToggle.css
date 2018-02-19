@@ -1,0 +1,81 @@
+.DrawerToggleWrp{
+  position: fixed;
+  z-index: 100;
+  width: 46px;
+  height: 46px;
+  left: 35px;
+  top: 5%;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.DrawerToggleWrp .DrawerToggleContainer{
+  width: 20px;
+  height: 7px;
+}
+.DrawerToggleWrp .DrawerToggleContainer > div{
+  height: 1px;
+  width: 100%;
+  background: #525453;
+  position: relative;
+  transform-origin: center;
+  transition: transform .2s;
+}
+.DrawerToggleWrp .DrawerToggleContainer .BottomDash{
+  transform: translate(0, 6px);
+}
+.DrawerToggleWrp:hover .DrawerToggleContainer .UpperDash{
+  transform: translate(0, -2px);
+}
+.DrawerToggleWrp:hover .DrawerToggleContainer .BottomDash{
+  transform: translate(0, 8px);
+}
+.DrawerToggleWrp .DrawerToggleContainer > div.ZeroDeg{
+  transition: transform .6s;
+  transform: translate(0, 3px) rotate(0deg);
+}
+.DrawerToggleWrp .DrawerToggleContainer > div.ClockWise{
+  transform: translate(0, 3px) rotate(-180deg);
+}
+.DrawerToggleWrp .DrawerToggleContainer > div.CounterClockWise{
+  transform: translate(0, 3px) rotate(180deg);
+}
+.DrawerToggleWrp .DrawerToggleContainer .UpperDashJump{
+  animation-name: upper-jump;
+  animation-duration: .7s;
+}
+.DrawerToggleWrp .DrawerToggleContainer .UpperDashJumpClose{
+  animation-name: upper-jump-close;
+  animation-duration: .7s;
+}
+.DrawerToggleWrp .DrawerToggleContainer .BottomDashJump{
+  animation-name: bottom-jump;
+  animation-duration: .7s;
+}
+.DrawerToggleWrp .DrawerToggleContainer .BottomDashJumpClose{
+  animation-name: bottom-jump-close;
+  animation-duration: .7s;
+}
+@keyframes upper-jump {
+    0%  {transform: translate(0, -2px);}
+    40% {transform: translate(0, -9px);}
+    45% {transform: translate(0, -9px);}
+}
+@keyframes upper-jump-close {
+    0%  {transform: translate(0, -2px);}
+    40% {transform: translate(0, -9px);}
+    45% {transform: translate(0, -9px);}
+}
+@keyframes bottom-jump {
+    0%  {transform: translate(0, 8px);}
+    40% {transform: translate(0, 15px);}
+    45% {transform: translate(0, 15px);}
+}
+@keyframes bottom-jump-close {
+    0%  {transform: translate(0, 8px);}
+    40% {transform: translate(0, 15px);}
+    45% {transform: translate(0, 15px);}
+}

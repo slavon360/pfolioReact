@@ -1,0 +1,21 @@
+.NavigationItems{
+  margin: 0;
+  padding: 0 0 0 20%;
+  box-sizing: border-box;
+  list-style: none;
+  display: block;
+  height: 100%;
+  transform: translateX(0);
+  transition: transform 1.5s;
+}
+.NavigationItemsInactive{
+  transition-delay: .1s;
+  transform: translateX(50%);
+}
+.NavigationItemsActive{
+  transition: transform 0s;
+}
+.NavHead{
+  margin: 3% 0 10%;
+  color: rgb(185, 191, 187);
+}

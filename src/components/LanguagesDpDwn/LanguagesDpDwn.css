@@ -1,0 +1,21 @@
+.LanguagesDpDwn{
+  position: fixed;
+  z-index: 100;
+  left: 100px;
+  top: 7%;
+  width: 55px;
+  height: 25px;
+}
+.LanguagesDpDwn select{
+  border: none;
+  outline: none;
+  background: transparent;
+  border-bottom: 1px solid;
+}
+.LanguagesDpDwn option{
+  background: rgb(186, 194, 187);
+  outline: none;
+}
+.LanguagesDpDwn option:focus{
+  outline: none;
+}
