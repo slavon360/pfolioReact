@@ -1,9 +1,12 @@
 import * as actionTypes from '../actions/actionTypes';
+import { defineScrollValue } from '../utility';
 
 const initialState = {
     handClosedMenu: false,
     openedMenu: false,
-    currentWorkIndex: 0
+    currentWorkIndex: 0,
+    scrollUp: {value: false, toggle: null},
+    scrollDown: {value: false, toggle: null}
 }
 const toggleDrawer = (state) => {
     return {
@@ -16,20 +19,26 @@ const scrollWorkDown = (state, action) => {
     let currentIndex = state.currentWorkIndex, worksNumber = action.worksNumber;
     currentIndex+=1;
     worksNumber < currentIndex && (currentIndex = 0);
-    console.log(currentIndex)
+    let scrollDown = defineScrollValue(state.scrollDown);
+    let scrollUp = {...state.scrollUp, value: false};
     return {
       ...state,
-      currentWorkIndex: currentIndex
+      currentWorkIndex: currentIndex,
+      scrollDown: scrollDown,
+      scrollUp: scrollUp
     }
 }
 const scrollWorkUp = (state, action) => {
     let currentIndex = state.currentWorkIndex, worksNumber = action.worksNumber;
     currentIndex-=1;
     currentIndex < 0 && (currentIndex = worksNumber);
-    console.log(currentIndex)
+    let scrollUp = defineScrollValue(state.scrollUp);
+    let scrollDown = {...state.scrollDown, value: false};
     return {
       ...state,
-      currentWorkIndex: currentIndex
+      currentWorkIndex: currentIndex,
+      scrollUp: scrollUp,
+      scrollDown: scrollDown
     }
 }
 

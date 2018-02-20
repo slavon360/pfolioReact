@@ -6,7 +6,10 @@ const work = (props) => {
     return (
             <div
               className={classes.WorkWrp}
-              style={{transform:'translateY('+props.translateYPosition + 'px)'}}>
+              style={{
+                transform: 'translateY('+props.translateYPosition + 'px)',
+                zIndex: props.workData.zIndex ? 50 : 1
+              }}>
               <div
                 className={classes.WorkBackground}
                 style={{backgroundImage:'url(' + backgroundImg + ')'}}></div>
