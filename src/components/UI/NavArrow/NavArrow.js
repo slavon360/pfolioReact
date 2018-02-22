@@ -9,15 +9,16 @@ class navArrow extends Component{
           let attachedClasses = [classes.NavArrow];
           let scrollWork = this.props.scrollWorkUp || this.props.scrollWorkDown;
           this.props.upsideDown && (attachedClasses = [classes.NavArrow, classes.NavArrowUpsideDown]);
-          let clickHandler = (worksNumber) => {
+          let clickHandler = (worksNumber, e) => {
+                let event = {screenX: e.screenX, screenY: e.screenY};
                 if (Date.now() - this.state.currentDate > 1000) {
                   this.setState({currentDate: Date.now()}, () => {
-                      scrollWork(worksNumber);
+                      scrollWork(worksNumber, event);
                   })
                 };
           }
           return (
-                <div onClick={() => { clickHandler(this.props.worksNumber) }} className={attachedClasses.join(' ')}></div>
+                <div onClick={(e) => { clickHandler(this.props.worksNumber, e) }} className={attachedClasses.join(' ')}></div>
               )
         }
 }

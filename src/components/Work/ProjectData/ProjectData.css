@@ -40,116 +40,116 @@
 }
 .Case_Scroll_Up{
   animation-name: case-scroll-up;
-  animation-duration: .7s;
+  animation-duration: 1s;
   animation-delay: .12s;
 }
 .Case_Scroll_Up_One{
   animation-name: case-scroll-up-one;
-  animation-duration: .7s;
+  animation-duration: 1s;
   animation-delay: .12s;
 }
 .Case_Scroll_Up_Two{
   animation-name: case-scroll-up;
-  animation-duration: .7s;
+  animation-duration: 1s;
   animation-delay: .12s;
 }
 .Title_Scroll_Up{
   animation-name: title-scroll-up;
-  animation-duration: .7s;
+  animation-duration: 1s;
   animation-delay: .06s;
 }
 .Title_Scroll_Up_One{
   animation-name: title-scroll-up-one;
-  animation-duration: .7s;
+  animation-duration: 1s;
   animation-delay: .06s;
 }
 .Title_Scroll_Up_Two{
   animation-name: title-scroll-up;
-  animation-duration: .7s;
+  animation-duration: 1s;
   animation-delay: .06s;
 }
 .BriefInfo_Scroll_Up{
   animation-name: brief-info-scroll-up;
-  animation-duration: .7s;
+  animation-duration: 1s;
   animation-delay: .03s;
 }
 .BriefInfo_Scroll_Up_One{
   animation-name: brief-info-scroll-up-one;
-  animation-duration: .7s;
+  animation-duration: 1s;
   animation-delay: .03s;
 }
 .BriefInfo_Scroll_Up_Two{
   animation-name: brief-info-scroll-up;
-  animation-duration: .7s;
+  animation-duration: 1s;
   animation-delay: .03s;
 }
 .Description_Scroll_Up{
   animation-name: description-scroll-up;
-  animation-duration: .7s;
+  animation-duration: 1s;
 }
 .Description_Scroll_Up_One{
   animation-name: description-scroll-up-one;
-  animation-duration: .7s;
+  animation-duration: 1s;
 }
 .Description_Scroll_Up_Two{
   animation-name: description-scroll-up;
-  animation-duration: .7s;
+  animation-duration: 1s;
 }
 .Case_Scroll_Down{
   animation-name: case-scroll-down;
-  animation-duration: .7s;
+  animation-duration: 1s;
 }
 .Case_Scroll_Down_One{
   animation-name: case-scroll-down-one;
-  animation-duration: .7s;
+  animation-duration: 1s;
 }
 .Case_Scroll_Down_Two{
   animation-name: case-scroll-down;
-  animation-duration: .7s;
+  animation-duration: 1s;
 }
 .Title_Scroll_Down{
   animation-name: title-scroll-down;
-  animation-duration: .7s;
+  animation-duration: 1s;
   animation-delay: .03s;
 }
 .Title_Scroll_Down_One{
   animation-name: title-scroll-down-one;
-  animation-duration: .7s;
+  animation-duration: 1s;
   animation-delay: .03s;
 }
 .Title_Scroll_Down_Two{
   animation-name: title-scroll-down;
-  animation-duration: .7s;
+  animation-duration: 1s;
   animation-delay: .03s;
 }
 .BriefInfo_Scroll_Down{
   animation-name: brief-info-scroll-down;
-  animation-duration: .7s;
+  animation-duration: 1s;
   animation-delay: .06s;
 }
 .BriefInfo_Scroll_Down_One{
   animation-name: brief-info-scroll-down-one;
-  animation-duration: .7s;
+  animation-duration: 1s;
   animation-delay: .06s;
 }
 .BriefInfo_Scroll_Down_Two{
   animation-name: brief-info-scroll-down;
-  animation-duration: .7s;
+  animation-duration: 1s;
   animation-delay: .06s;
 }
 .Description_Scroll_Down{
   animation-name: description-scroll-down;
-  animation-duration: .7s;
+  animation-duration: 1s;
   animation-delay: .12s;
 }
 .Description_Scroll_Down_One{
   animation-name: description-scroll-down-one;
-  animation-duration: .7s;
+  animation-duration: 1s;
   animation-delay: .12s;
 }
 .Description_Scroll_Down_Two{
   animation-name: description-scroll-down;
-  animation-duration: .7s;
+  animation-duration: 1s;
   animation-delay: .12s;
 }
 @keyframes case-scroll-down {

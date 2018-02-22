@@ -9,7 +9,11 @@ import classes from './Works.css';
 class Works extends Component{
     state = {
       windowWidth: 0,
-      windowHeight: 0
+      windowHeight: 0,
+      xAxis: 0,
+      yAxis: 0,
+      tempXAxis: null,
+      tempYAxis: null
     }
 
     componentDidMount(){
@@ -28,7 +32,20 @@ class Works extends Component{
         //callback
       })
     }
-
+    mouseMoveHandler = (event) => {
+      (this.state.tempYAxis || this.state.tempXAxis) && this.setState({tempXAxis: null, tempYAxis: null});
+      this.setState({xAxis: event.screenX, yAxis: event.screenY});
+    }
+    scrollWorkUp = (worksNumber, event) => {
+      //this.mouseMoveHandler(event);
+      this.setState({tempXAxis: event.screenX, tempYAxis: event.screenY});
+      this.props.onScrollWorkUp(worksNumber);
+    }
+    scrollWorkDown = (worksNumber, event) => {
+      //this.mouseMoveHandler(event);
+      this.setState({tempXAxis: event.screenX, tempYAxis: event.screenY});
+      this.props.onScrollWorkDown(worksNumber);
+    }
     render(){
       let currentWorkIndex = this.props.currentWorkIndex;
       let works = this.props.works.map((work, index, worksArr) => {
@@ -43,21 +60,29 @@ class Works extends Component{
             worksArr[0].translateYPosition = this.state.windowHeight;
           }
           return <Work
+                  tempXAxis={this.state.tempXAxis}
+                  tempYAxis={this.state.tempYAxis}
+                  xAxis={this.state.xAxis}
+                  yAxis={this.state.yAxis}
+                  mouseMove={this.mouseMoveHandler}
                   translateYPosition={work.translateYPosition}
                   key={work.title}
-                  workData={work}/>
+                  workData={work}
+                  scrollDown={this.props.scrollDown}
+                  scrollUp={this.props.scrollUp} />
       })
       return (
               <div className={classes.WorksWrp}>
                 {works}
                 <ProjectData
+                  mouseMove={this.mouseMoveHandler}
                   projectInfo={this.props.works[currentWorkIndex]}
                   scrollDown={this.props.scrollDown}
                   scrollUp={this.props.scrollUp} />
                 <ScrollNav
                   worksNumber={this.props.works.length-1}
-                  scrollWorkDown={this.props.onScrollWorkDown}
-                  scrollWorkUp={this.props.onScrollWorkUp} />
+                  scrollWorkDown={this.scrollWorkDown}
+                  scrollWorkUp={this.scrollWorkUp} />
               </div>
             );
     }

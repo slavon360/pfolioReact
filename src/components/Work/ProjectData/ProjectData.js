@@ -27,7 +27,6 @@ const projectData = (props) => {
           briefInfoAttachedClasses = [classes.BriefInfo, classes.BriefInfo_Scroll_Up_Two];
           descriptionAttachedClasses = [classes.Description, classes.Description_Scroll_Up_Two];
         }
-        console.log(caseAttachedClasses, scrollUp);
     }
     let defineScrollDowns = (scrollDown) => {
         if (!scrollDown.toggle) {
@@ -48,7 +47,6 @@ const projectData = (props) => {
           briefInfoAttachedClasses = [classes.BriefInfo, classes.BriefInfo_Scroll_Down_Two];
           descriptionAttachedClasses = [classes.Description, classes.Description_Scroll_Down_Two];
         }
-        console.log(caseAttachedClasses, scrollDown);
     }
     if (scrollUp.value) {
       defineScrollUps(scrollUp);
@@ -57,7 +55,9 @@ const projectData = (props) => {
       defineScrollDowns(scrollDown);
     }
     return (
-      <div className={classes.ProjectDataWrp}>
+      <div
+        onMouseMove={props.mouseMove} 
+        className={classes.ProjectDataWrp}>
         <div className={classes.LeftSide}></div>
         <div className={classes.RightSide}>
           <div className={classes.Header}>{header.translate}</div>

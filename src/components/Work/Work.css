@@ -3,12 +3,64 @@
   transform: translateY(0);
   position: absolute;
   width: 100%;
-  transition: all .8s cubic-bezier(1.000, 0.080, 0.190, 1.015);
+  transform-style: preserve-3d;
+  overflow: hidden;
 }
-.WorkBackground{
+.WorkWrp::before{
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: -10%;
+  left: -15%;
+  height: 120%;
+  width: 130%;
+  background-color: rgba(0,0,0,.15);
+}
+.WorkWrpNormal{
+  transition: all 1s cubic-bezier(1.000, 0.080, 0.190, 1.015) 0.1s;
+}
+.WorkWrpSlow{
+  transition: all 1.1s cubic-bezier(1.000, 0.080, 0.190, 1.015) 0.1s;
+}
+.ContainerOuter{
+  position: absolute;
+  overflow: hidden;
+  width: 110%;
+  height: 106%;
+  top: -3%;
+  left: -5%;
+}
+.Container{
+  width: 100%;
   height: 100%;
+  pointer-events: none;
+  transform-style: preserve-3d;
+  perspective: 10000px;
+  opacity: 1;
+}
+.ContainerInner{
+  position: relative;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.WorkImgFront, .WorkImgBackground, .WorkImgMiddle{
+  height: 100%;
+  width: 100%;
+  position: absolute;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  transition: transform .15s;
+}
+.WorkImgBackground{
+  transform: translate3d(0, 0, 145px);
+}
+.WorkImgMiddle{
+  transform: translate3d(0, 0, 245px);
+}
+.WorkImgFront{
+  transform: translate3d(0, 0, 485px);
 }
