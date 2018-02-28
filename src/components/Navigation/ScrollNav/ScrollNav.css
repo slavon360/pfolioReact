@@ -4,3 +4,6 @@
   right: 30px;
   z-index: 100;
 }
+.ScrollNavWrpHidden{
+  display: none;
+}

@@ -1,0 +1,18 @@
+
+.MainInfoWrp{
+  margin: 35% auto 0;
+  background: rgb(254, 254, 254);
+  position: relative;
+  padding: 20px;
+  box-sizing: border-box;
+  width: 96%;
+  color: rgb(64, 64, 64);
+}
+.Description{
+  font-weight: 700;
+  width: 75%;
+}
+.Description{
+  margin-top: 15%;
+  font-size: 28px;
+}

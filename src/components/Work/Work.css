@@ -46,13 +46,11 @@
   height: 100%;
   pointer-events: none;
 }
-.WorkImgFront, .WorkImgBackground, .WorkImgMiddle{
+.WorkImgPreFront, .WorkImgFront, .WorkImgBackground, .WorkImgMiddle{
   height: 100%;
   width: 100%;
   position: absolute;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  object-fit: cover;
   transition: transform .15s;
 }
 .WorkImgBackground{
@@ -60,6 +58,9 @@
 }
 .WorkImgMiddle{
   transform: translate3d(0, 0, 245px);
+}
+.WorkImgPreFront{
+  transform: translate3d(0, 0, 345px);
 }
 .WorkImgFront{
   transform: translate3d(0, 0, 485px);

@@ -3,8 +3,10 @@ import NavArrow from '../../UI/NavArrow/NavArrow';
 import classes from './ScrollNav.css';
 
 const scrollNav = (props) => {
+      let scrollNavWrpClasses = [classes.ScrollNavWrp];
+      props.worksSection.gridView && (scrollNavWrpClasses = [classes.ScrollNavWrpHidden]);
       return (
-        <div className={classes.ScrollNavWrp}>
+        <div className={scrollNavWrpClasses.join(' ')}>
           <NavArrow
             scrollWorkUp={props.scrollWorkUp}
             worksNumber={props.worksNumber} />

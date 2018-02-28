@@ -1,0 +1,7 @@
+.DevicesViewWrp{
+  margin-top: 20px;
+}
+.DevicesViewWrp img{
+  width: 100%;
+  object-fit: contain;
+}

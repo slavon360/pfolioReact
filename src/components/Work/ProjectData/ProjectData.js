@@ -54,10 +54,12 @@ const projectData = (props) => {
     if (scrollDown.value) {
       defineScrollDowns(scrollDown);
     }
+    let projectDataWrpClasses = [classes.ProjectDataWrp];
+    props.worksSection.gridView && (projectDataWrpClasses = [classes.ProjectDataWrpHidden])
     return (
       <div
-        onMouseMove={props.mouseMove} 
-        className={classes.ProjectDataWrp}>
+        onMouseMove={props.mouseMove}
+        className={projectDataWrpClasses.join(' ')}>
         <div className={classes.LeftSide}></div>
         <div className={classes.RightSide}>
           <div className={classes.Header}>{header.translate}</div>

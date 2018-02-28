@@ -1,0 +1,99 @@
+.WorkGridWrp{
+  display: inline-block;
+  width: 50%;
+  height: 80%;
+  margin-bottom: -4px;
+  position: relative;
+}
+.WorkGridWrp::before, .WorkGridWrp::after{
+  content: '';
+  position: absolute;
+  z-index: 1;
+}
+.WorkGridWrp::before{
+  background: rgba(0,0,0, .5);
+  top:20px;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  opacity: 0;
+  transition: opacity .4s;
+}
+.WorkGridWrp::after{
+  background: rgba(0,0,0, .15);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.WorkGridWrp:hover::before,
+.WorkGridWrp:hover .BriefInfoWrp{
+  opacity: 1;
+}
+.WorkGridWrp:hover .Ball{
+  transform: rotate(180deg);
+}
+.WorkImgFront, .WorkImgPreFront, .WorkImgBackground, .WorkImgMiddle{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.WorkImgBackground{
+  transform: translate3d(0, 0, 145px);
+}
+.WorkImgMiddle{
+  transform: translate3d(0, 0, 245px);
+}
+.WorkImgPreFront{
+  transform: translate3d(0, 0, 345px);
+}
+.WorkImgFront{
+  transform: translate3d(0, 0, 485px);
+}
+.BriefInfoWrp{
+  position: absolute;
+  left: 40px;
+  bottom: 40px;
+  font-size: 1.7em;
+  font-weight: 700;
+  z-index: 2;
+  color: #fff;
+  opacity: 0;
+  transition: opacity .4s;
+  cursor: pointer;
+}
+.Ball{
+  position: relative;
+  width: 40px;
+  height: 40px;
+  background: #fff;
+  border-radius: 50%;
+  margin: 5px 0;
+  transform: rotate(0deg);
+  transition: transform .4s;
+}
+.Kernel, .Kernel::before, .Kernel::after{
+  width: 3px;
+  height: 3px;
+  background: #888;
+  border-radius: 50%;
+}
+.Kernel{
+  position: absolute;
+  top: 48%;
+  left: 48%;
+}
+.Kernel::before,
+.Kernel::after{
+  content: '';
+  position: absolute;
+}
+.Kernel::before{
+  left: -6px;
+}
+.Kernel::after{
+  right: -6px;
+}

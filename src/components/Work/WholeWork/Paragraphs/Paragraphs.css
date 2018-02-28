@@ -1,0 +1,44 @@
+.ParagraphsWrp{
+  color: rgb(176, 175, 175);
+  padding-left: 15%;
+  vertical-align: top;
+  margin-top: 1em;
+}
+.FirstParag, .SecondParag, .TechWrp{
+  display: inline-block;
+  width: 28%;
+  vertical-align: top;
+}
+.FirstParag, .SecondParag{
+  padding-right: 35px;
+}
+.SecondParag{
+  margin-top: 2.4em;
+}
+.TechWrp{
+  padding-left: 20px;
+  margin-top: 1em;
+}
+.TechKey{
+  font-weight: 700;
+  padding-bottom: 1em;
+  margin-bottom: 1em;
+  border-bottom: 1px solid #ccc;
+}
+.Tech{
+  padding: 5px 0;
+}
+.Story{
+  display: block;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+.LinkWrp > div:first-child{
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+.LinkWrp > div:last-child a{
+  color: rgb(64, 64, 64);
+  text-decoration: none;
+  font-weight: 700;
+}

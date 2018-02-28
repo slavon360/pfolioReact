@@ -1,0 +1,123 @@
+.ViewsDpDwnWrp{
+  position: fixed;
+  z-index: 100;
+  width: 36px;
+  height: 36px;
+  padding: 2px;
+  box-sizing: border-box;
+  top: 5%;
+  right: 35px;
+  background: rgba(0,0,0, .35);
+}
+.ViewsDpDwnWrp:hover, .ViewsDpDwnWrpActive{
+  box-shadow: 0 0 8px 2px #fff;
+}
+.ViewsDpDwnSelected{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
+}
+.ViewsDpDwnOptions{
+  position: absolute;
+  height: 70px;
+  width: 100%;
+  top: 38px;
+  left: 0;
+  padding: 2px;
+  box-sizing: border-box;
+  background: rgba(0,0,0, .25);
+}
+.ViewsDpDwnOptionsHiden{
+  display: none;
+}
+.ViewsDpDwnOptionsShow{
+  display: block;
+}
+.ViewGrid, .ViewList{
+  background: rgba(0,0,0, .35);
+  padding: 1px 2px;
+  height: 32px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.ViewList{
+  margin-bottom: 2px;
+  padding: 1px 3px;
+}
+.ViewList > div{
+  width: 100%;
+  height: 3px;
+  margin: 5px 0;
+  position: relative;
+}
+.ViewList > div::before,
+.ViewList > div::after{
+  content: '';
+  position: absolute;
+  background: #fff;
+  height: 3px;
+  top: 0;
+  transition: all .3s;
+}
+.ViewsDpDwnSelected .ViewList > div::before,
+.ViewsDpDwnSelected .ViewList > div::after{
+  transition: none;
+}
+.ViewList > div::after{
+  right: 0;
+  width: 19px;
+}
+.ViewList > div::before{
+  left: 0;
+  width: 3px;
+}
+.ViewGrid > div{
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 2px 0;
+  background: #fff;
+  transition: all .3s;
+}
+.ViewsDpDwnSelected .ViewGrid > div{
+  transition: none;
+}
+.ViewGrid > div:nth-child(1),
+.ViewList > div:nth-child(1)::before,
+.ViewList > div:nth-child(1)::after{
+  transition-delay: 0;
+}
+.ViewGrid > div:nth-child(2),
+.ViewList > div:nth-child(2)::before,
+.ViewList > div:nth-child(2)::after{
+  transition-delay: 0.075s;
+}
+.ViewGrid > div:nth-child(3),
+.ViewList > div:nth-child(3)::before,
+.ViewList > div:nth-child(3)::after{
+  transition-delay: 0.15s;
+}
+.ViewGrid > div:nth-child(4){
+  transition-delay: 0.225s;
+}
+.ViewGrid > div:nth-child(3),
+.ViewGrid > div:nth-child(4){
+  transform: translate(0, -5px);
+}
+.ViewsDpDwnSelected .ViewGrid > div:nth-child(3),
+.ViewsDpDwnSelected .ViewGrid > div:nth-child(4){
+  transform: translate(0, 0);
+}
+.ViewsDpDwnOptions .ViewGrid:hover > div,
+.ViewsDpDwnOptions .ViewList:hover > div::before,
+.ViewsDpDwnOptions .ViewList:hover > div::after,
+.ViewsDpDwnSelected .ViewGrid > div,
+.ViewsDpDwnSelected .ViewList > div::before,
+.ViewsDpDwnSelected .ViewList > div::after{
+  background: #FF9800;
+}

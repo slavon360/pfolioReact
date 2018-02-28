@@ -13,6 +13,10 @@ class Layout extends Component {
         this.props.onfetchPfolioData();
       }
     }
+    shouldComponentUpdate(nextProps, nextState){
+      console.log('[Layout] shouldComponentUpdate', this.props);
+      return true;
+    }
     render(){
       let content = <div>Loading...</div>;
       let wrpClasses = [classes.LayoutWrp, classes.LayoutWrpInactive];
@@ -33,7 +37,9 @@ class Layout extends Component {
               openedMenu={this.props.openedMenu}
               menuKeys={this.props.menuKeys}
               toggleDrawer={this.props.onToggleDrawer}/>
-            <main className={wrpClasses.join(' ')}>
+            <main
+              className={wrpClasses.join(' ')}
+              style={{overflowY: this.props.workOpened ? 'scroll' : 'hidden'}}>
               {this.props.children}
             </main>
           </Adj>
@@ -48,6 +54,7 @@ class Layout extends Component {
 }
 const mapStateToProps = state => {
     return {
+      workOpened: state.uireducer.workOpened,
       openedMenu: state.uireducer.openedMenu,
       handClosedMenu: state.uireducer.handClosedMenu,
       menuKeys: state.dataReducer.menuKeys,

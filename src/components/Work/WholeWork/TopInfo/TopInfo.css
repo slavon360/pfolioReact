@@ -1,0 +1,28 @@
+.Top{
+  display: flex;
+}
+.ClientValue{
+  margin-top: 5px;
+}
+.Top .Client{
+  flex-grow: 1.3;
+}
+.Top .Case{
+  flex-grow: 2;
+}
+.CaseWord{
+  margin-bottom: 25px;
+}
+.Client, .Case, .Title{
+  font-weight: 700;
+}
+.ClientKey, .CaseWord, .Title{
+  color: rgb(201, 201, 201);
+}
+.BriefInfo{
+  width: 60%;
+}
+.Title, .BriefInfo{
+  margin-top: 5px;
+  font-size: 28px;
+}

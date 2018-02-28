@@ -7,6 +7,9 @@
   z-index: 100;
   color: #fff;
 }
+.ProjectDataWrpHidden{
+  display: none;
+}
 .LeftSide, .RightSide{
   display: inline-block;
   height: 100%;

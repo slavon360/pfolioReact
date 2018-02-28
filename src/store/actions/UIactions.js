@@ -17,3 +17,19 @@ export const scrollWorkDown = (worksNumber) => {
       worksNumber: worksNumber
     }
 }
+export const switchToGridView = () => {
+    return {
+      type: actionTypes.SWITCH_TO_GRID_VIEW
+    }
+}
+export const switchToListView = () => {
+    return {
+      type: actionTypes.SWITCH_TO_LIST_VIEW
+    }
+}
+export const setWorkOpened = (val) => {
+    return {
+      type: actionTypes.SET_WORK_OPENED,
+      value: val
+    }
+}
