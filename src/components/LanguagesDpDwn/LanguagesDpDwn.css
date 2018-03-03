@@ -5,18 +5,80 @@
   top: 7%;
   width: 55px;
   height: 25px;
+  color: #fff;
 }
-.LanguagesDpDwn select{
-  color: #eee;
+.LanguagesDpDwn:hover .LanguagesContainer,
+.LanguagesDpDwnActive .LanguagesContainer{
+  color: #FF9800;
+}
+.LanguagesDpDwnInactive .LanguagesSet{
+  max-height: 0;
+}
+.LanguagesDpDwnActive .LanguagesSet{
+  max-height: 220px;
+}
+.LanguagesDpDwnActive .LanguagesContainer::after,
+.LanguagesDpDwn:hover .LanguagesContainer::after{
+  border-top-color: #FF9800;
+}
+.LanguagesContainer{
+  position: relative;
+  width: 100%;
+  height: 100;
+  box-sizing: border-box;
+  background: transparent;
   border: none;
   outline: none;
-  background: transparent;
-  border-bottom: 1px solid;
+  color: #fff;
+  padding: 0 8px 4px 0;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
 }
-.LanguagesDpDwn option{
-  background: rgb(186, 194, 187);
-  outline: none;
+.LanguagesContainer::after{
+  content: '';
+  position: absolute;
+  right: 5px;
+  top: 6px;
+  border-top: 4px solid #fff;
+  border-bottom: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
 }
-.LanguagesDpDwn option:focus{
-  outline: none;
+.LanguagesSet{
+  font-size: 13px;
+  text-align: center;
+  position: relative;
+  transition: all .5s cubic-bezier(1.000, 0.080, 0.190, 1.015);
+  background: rgba(0,0,0, .3);
+  border-right: 1px solid #ccc;
+  overflow: hidden;
+}
+.LanguagesSetContainer{
+  padding: 8px 8px 0 0;
+  transition: transform .5s cubic-bezier(1.000, 0.080, 0.190, 1.015);
+}
+.LanguagesDpDwnActive .LanguagesSetContainer{
+  transform: translateX(0);
+}
+.LanguagesDpDwnInactive .LanguagesSetContainer{
+  transform: translateX(100%);
+}
+.Language{
+  padding-bottom: 8px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.Language::before{
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  right: -100%;
+  width: 70%;
+  height: 1px;
+  background: #ccc;
+  transition: right .3s cubic-bezier(1.000, 0.080, 0.190, 1.015);
+}
+.Language:hover::before{
+  right: 15%;
 }

@@ -49,7 +49,6 @@ const workGrid = (props) => {
             </div>
           )
       }
-      console.log(props)
       return (
         <div className={classes.WorkGridWrp}>
           <NavLink to={props.location.pathname + '/' + props.workData.title}>

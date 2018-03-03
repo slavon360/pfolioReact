@@ -36,22 +36,28 @@ const updateMenuKeys = (pfolioData, language) => {
       }
       return updatedMenuKeys;
 }
+const updateWorks = (pfolioData, selectedLanguage) => {
+      let updatedWorks = pfolioData[selectedLanguage].menu.Works.works;
+      let updatedWorksArray = objIntoArray(updatedWorks);
+      return updatedWorksArray;
+}
 const selectLanguage = (state, action) => {
-      console.log(state)
-      let updatedLanguages = [ ...initialState.languages ];
+      let updatedLanguages = [ ...state.languages ];
       updatedLanguages = updatedLanguages.map((lang) => {
-        return {...lang};
+        return { ...lang };
       })
       updatedLanguages.map((lang) => {
         lang.selected = lang.dataName === action.language ? true : false;
         return lang;
       });
       let updatedMenuKeys = updateMenuKeys(state.pfolioData, action.language);
+      let updatedWorks = updateWorks(state.pfolioData, action.language);
       return {
         ...state,
         languages: updatedLanguages,
         menuKeys: updatedMenuKeys,
-        selectedLanguage: action.language
+        selectedLanguage: action.language,
+        works: updatedWorks
       }
 }
 const fetchPfolioDataSuccess = (state, action) => {

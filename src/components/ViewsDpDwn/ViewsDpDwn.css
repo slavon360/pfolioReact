@@ -8,6 +8,7 @@
   top: 5%;
   right: 35px;
   background: rgba(0,0,0, .35);
+  box-shadow: 0 0 6px 1px #fff;
 }
 .ViewsDpDwnWrp:hover, .ViewsDpDwnWrpActive{
   box-shadow: 0 0 8px 2px #fff;

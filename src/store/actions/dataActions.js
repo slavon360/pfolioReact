@@ -33,14 +33,12 @@ export const fetchPfolioData = () => {
     }
 }
 const setLanguage = (lang) => {
-    console.log(lang)
     return {
       type: actionTypes.SELECT_LANGUAGE,
       language: lang
     }
 }
-export const selectLanguage = (event) => {
-    let lang = event.target.value;
+export const selectLanguage = (lang) => {
     if (lang && typeof lang === 'string'){
       return setLanguage(lang);
     }

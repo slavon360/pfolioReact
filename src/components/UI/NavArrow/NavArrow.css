@@ -6,6 +6,7 @@
   position: relative;
   background: #fff;
   cursor: pointer;
+  transition: all .8s cubic-bezier(1.000, 0.080, 0.190, 1.015);
 }
 .NavArrow::before,
 .NavArrow::after{

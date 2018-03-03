@@ -15,18 +15,16 @@ class Works extends Component{
       xAxis: 0,
       yAxis: 0,
       tempXAxis: null,
-      tempYAxis: null,
-      showDpDwnView: false
+      tempYAxis: null
     }
 
     componentDidMount(){
       this.updateWindowDimensions();
-      this.props.onSetWorkOpened(false);
-      window.addEventListener('resize', this.updateWindowDimensions);
+      window.addEventListener('resize', this.updateWindowDimensions, true);
     }
     componentWillUnmount(){
       console.log('WORKS [componentWillUnmount]')
-      window.removeEventListener('resize', this.updateWindowDimensions);
+      window.removeEventListener('resize', this.updateWindowDimensions, true);
     }
     updateWindowDimensions = () => {
       console.log('updateWindowDimensions')
@@ -51,16 +49,7 @@ class Works extends Component{
       this.setState({tempXAxis: event.screenX, tempYAxis: event.screenY});
       this.props.onScrollWorkDown(worksNumber);
     }
-    showHideViewDpDwn = () => {
-      this.setState((prevState) => {
-          return { showDpDwnView: !prevState.showDpDwnView};
-      })
-    }
-    hideViewDpDwn = () => {
-      window.setTimeout(() => {
-        this.setState({showDpDwnView: false});
-      }, 150);
-    }
+
     render(){
       let currentWorkIndex = this.props.currentWorkIndex;
       let works = this.props.works.map((work, index, worksArr) => {
@@ -100,14 +89,17 @@ class Works extends Component{
               <div className={worksWrpClasses.join(' ')}>
                 {works}
                 <ViewsDpDwn
+                  selectedProp="showDpDwnView"
+                  tempXAxis={this.state.tempXAxis}
                   gridView={this.props.worksSection.gridView}
                   listView={this.props.worksSection.listView}
-                  showDpDwnView={this.state.showDpDwnView}
-                  showHideViewDpDwn={this.showHideViewDpDwn}
-                  hideViewDpDwn={this.hideViewDpDwn}
+                  showDpDwnView={this.props.showDpDwnView}
+                  showHideViewDpDwn={this.props.onShowHideViewDpDwn}
+                  hideViewDpDwn={this.props.onHideViewDpDwn}
                   switchToListView={this.props.onSwitchToListView}
                   switchToGridView={this.props.onSwitchToGridView} />
                 <ProjectData
+                  location={this.props.location}
                   worksSection={this.props.worksSection}
                   mouseMove={this.mouseMoveHandler}
                   projectInfo={this.props.works[currentWorkIndex]}
@@ -122,9 +114,10 @@ class Works extends Component{
             );
     }
 }
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
     return {
       works: state.dataReducer.works,
+      showDpDwnView: state.uireducer.showDpDwnView,
       currentWorkIndex: state.uireducer.currentWorkIndex,
       scrollDown: state.uireducer.scrollDown,
       scrollUp: state.uireducer.scrollUp,
@@ -137,7 +130,8 @@ const mapDispatchToProps = (dispatch) => {
       onSwitchToListView: () => dispatch(actions.switchToListView()),
       onScrollWorkUp: (worksNumber) => dispatch(actions.scrollWorkUp(worksNumber)),
       onScrollWorkDown: (worksNumber) => dispatch(actions.scrollWorkDown(worksNumber)),
-      onSetWorkOpened: (value) => dispatch(actions.setWorkOpened(value))
+      onShowHideViewDpDwn: (propName) => dispatch(actions.showHideViewDpDwn(propName)),
+      onHideViewDpDwn: (propName) => dispatch(actions.hideViewDpDwn(propName))
     }
 }
 

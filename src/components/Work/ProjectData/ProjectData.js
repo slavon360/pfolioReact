@@ -1,7 +1,9 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import classes from './ProjectData.css';
 
 const projectData = (props) => {
+    //console.log('projectData')
     let scrollUp = props.scrollUp, scrollDown = props.scrollDown;
     let header = props.projectInfo.header;
     let briefInfo = props.projectInfo.briefInfo;
@@ -62,13 +64,30 @@ const projectData = (props) => {
         className={projectDataWrpClasses.join(' ')}>
         <div className={classes.LeftSide}></div>
         <div className={classes.RightSide}>
-          <div className={classes.Header}>{header.translate}</div>
-          <div className={classes.Content}>
-            <div className={caseAttachedClasses.join(' ')}>{briefInfo.translate}</div>
-            <div className={titleAttachedClasses.join(' ')}>{props.projectInfo.title}</div>
-            <div className={briefInfoAttachedClasses.join(' ')}>{briefInfo.briefInfo}</div>
-            <div className={descriptionAttachedClasses.join(' ')}>{description.translate}</div>
-          </div>
+          <NavLink
+            to={props.location.pathname + '/' + props.projectInfo.title}
+            style={{color: '#fff', textDecoration: 'none'}}>
+            <div className={classes.Header}>{header.translate}</div>
+            <div className={classes.Content}>
+              <div className={caseAttachedClasses.join(' ')}>{briefInfo.translate}</div>
+              <div className={titleAttachedClasses.join(' ')}>{props.projectInfo.title}</div>
+              <div
+                className={briefInfoAttachedClasses.join(' ')}
+                style={{color: briefInfo.color}}>
+                {briefInfo.briefInfo}
+              </div>
+              <div className={descriptionAttachedClasses.join(' ')}>
+                <div
+                  className={classes.Ball}>
+                  <div className={classes.Kernel}></div>
+                </div>
+                <span className={classes.SeeMore}>{props.projectInfo.more.translate}</span>
+                <div>
+                  {description.translate}
+                </div>
+              </div>
+            </div>
+          </NavLink>
         </div>
       </div>
     )

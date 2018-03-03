@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './Work.css';
 
 const work = (props) => {
-
+    console.log('work - ', props.workData.title)
     let backgroundImg, backgroundImgStyles = {}, frontImg, frontImgStyles = {}, middleImg, middleImgStyles = {},
     preFrontImg, preFrontImgStyles = {}, containerInnerStyles = {};
     let WorkWrpClasses = [classes.WorkWrp, classes.WorkWrpNormal];

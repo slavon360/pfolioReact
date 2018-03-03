@@ -2,6 +2,8 @@ import * as actionTypes from '../actions/actionTypes';
 import { defineScrollValue } from '../utility';
 
 const initialState = {
+    showDpDwnView: false,
+    showDpDwnLanguages: false,
     handClosedMenu: false,
     openedMenu: false,
     currentWorkIndex: 0,
@@ -10,8 +12,7 @@ const initialState = {
     worksSection: {
       listView: true,
       gridView: false
-    },
-    workOpened: false
+    }
 }
 const toggleDrawer = (state) => {
     return {
@@ -58,10 +59,16 @@ const switchToGridView = (state) => {
       worksSection: { listView: false, gridView: true }
     }
 }
-const setWorkOpened = (state, action) => {
+const showHideViewDpDwn = (state, action) => {
     return {
       ...state,
-      workOpened: action.value
+      [action.propName]: !state[action.propName]
+    }
+}
+const hideViewDpDwn = (state, action) => {
+    return {
+      ...state,
+      [action.propName]: false
     }
 }
 const reducer = (state = initialState, action) => {
@@ -76,8 +83,10 @@ const reducer = (state = initialState, action) => {
         return switchToListView(state);
       case actionTypes.SWITCH_TO_GRID_VIEW:
         return switchToGridView(state);
-      case actionTypes.SET_WORK_OPENED:
-        return setWorkOpened(state, action);
+      case actionTypes.SHOW_HIDE_VIEW_DP_DWN:
+        return showHideViewDpDwn(state, action);
+      case actionTypes.HIDE_VIEW_DP_DWN:
+        return hideViewDpDwn(state, action);
       default: return state;
     }
 }

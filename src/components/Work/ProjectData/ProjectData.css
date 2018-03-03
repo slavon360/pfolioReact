@@ -7,12 +7,62 @@
   z-index: 100;
   color: #fff;
 }
+.RightSide:hover .Ball{
+  transform: rotate(180deg);
+}
+.RightSide:hover .SeeMore{
+  transform: translate(15px, -20px);
+  opacity: 1;
+}
+.Ball{
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background: #fff;
+  border-radius: 50%;
+  margin: 5px 0;
+  transform-origin: center;
+  transform: rotate(0deg);
+  transition: transform .4s;
+}
+.SeeMore{
+  display: inline-block;
+  font-size: 13;
+  transform: translate(0, -20px);
+  opacity: 0;
+  transition: all .5s;
+}
+.Kernel, .Kernel::before, .Kernel::after{
+  width: 4px;
+  height: 4px;
+  background: #888;
+  border-radius: 50%;
+}
+.Kernel{
+  position: absolute;
+  top: 18px;
+  left: 18px;
+}
+.Kernel::before,
+.Kernel::after{
+  content: '';
+  position: absolute;
+}
+.Kernel::before{
+  left: -8px;
+}
+.Kernel::after{
+  right: -8px;
+}
 .ProjectDataWrpHidden{
   display: none;
 }
 .LeftSide, .RightSide{
   display: inline-block;
   height: 100%;
+  color: #fff !important;
+  text-decoration: none !important;
 }
 .LeftSide{
   width: 40%;
@@ -35,6 +85,9 @@
 }
 .Title, .BriefInfo{
   font-size: 26px;
+}
+.BriefInfo{
+  margin-bottom: 30px;
 }
 .Description{
   margin-top: 30px;

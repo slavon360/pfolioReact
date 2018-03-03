@@ -13,8 +13,11 @@ class Layout extends Component {
         this.props.onfetchPfolioData();
       }
     }
+    componentDidUpdate(){
+      console.log('[Layout] componentDidUpdate')
+    }
     shouldComponentUpdate(nextProps, nextState){
-      console.log('[Layout] shouldComponentUpdate', this.props);
+      //console.log('[Layout] shouldComponentUpdate', this.props);
       return true;
     }
     render(){
@@ -31,15 +34,18 @@ class Layout extends Component {
               openedMenu={this.props.openedMenu}
               toggleDrawer={this.props.onToggleDrawer}/>
             <LanguagesDpDwn
+              selectedProp="showDpDwnLanguages"
+              showDpDwnLanguages={this.props.showDpDwnLanguages}
               languages={this.props.languages}
+              showHideViewDpDwn={this.props.onShowHideViewDpDwn}
+              hideViewDpDwn={this.props.onHideViewDpDwn}
               selectLanguage={this.props.onSelectLanguage}/>
             <SideDrawer
               openedMenu={this.props.openedMenu}
               menuKeys={this.props.menuKeys}
               toggleDrawer={this.props.onToggleDrawer}/>
             <main
-              className={wrpClasses.join(' ')}
-              style={{overflowY: this.props.workOpened ? 'scroll' : 'hidden'}}>
+              className={wrpClasses.join(' ')}>
               {this.props.children}
             </main>
           </Adj>
@@ -54,7 +60,7 @@ class Layout extends Component {
 }
 const mapStateToProps = state => {
     return {
-      workOpened: state.uireducer.workOpened,
+      showDpDwnLanguages: state.uireducer.showDpDwnLanguages,
       openedMenu: state.uireducer.openedMenu,
       handClosedMenu: state.uireducer.handClosedMenu,
       menuKeys: state.dataReducer.menuKeys,
@@ -66,7 +72,9 @@ const mapDispatchToProps = dispatch => {
     return {
       onToggleDrawer: () => dispatch(actions.toggleDrawer()),
       onfetchPfolioData: () => dispatch(actions.fetchPfolioData()),
-      onSelectLanguage: (lang) => dispatch(actions.selectLanguage(lang))
+      onSelectLanguage: (lang) => dispatch(actions.selectLanguage(lang)),
+      onShowHideViewDpDwn: (propName) => dispatch(actions.showHideViewDpDwn(propName)),
+      onHideViewDpDwn: (propName) => dispatch(actions.hideViewDpDwn(propName))
     }
 }
 

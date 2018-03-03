@@ -3,14 +3,32 @@ import classes from './LanguagesDpDwn.css';
 
 
 const languagesDpDwn = (props) => {
-  let options = props.languages.map((lang) => {
-                  return (<option key={lang.dataName} value={lang.dataName}>{lang.language}</option>)
-                })
+    console.log('languagesDpDwn')
+    let languagesDpDwnClasses = [classes.LanguagesDpDwn, classes.LanguagesDpDwnInactive];
+    props.showDpDwnLanguages && (languagesDpDwnClasses = [classes.LanguagesDpDwn, classes.LanguagesDpDwnActive]);
+    let selectedLanguage;
+    let options = props.languages.map((lang) => {
+                    lang.selected && (selectedLanguage = lang.language);
+                    return (<div
+                                onClick={() => {props.selectLanguage(lang.dataName)}}
+                                className={classes.Language}
+                                key={lang.dataName}>
+                                {lang.language}
+                            </div>)
+                  });
       return (
-        <div className={classes.LanguagesDpDwn}>
-          <select onChange={props.selectLanguage}>
-            {options}
-          </select>
+        <div className={languagesDpDwnClasses.join(' ')}>
+          <button
+            className={classes.LanguagesContainer}
+            onBlur={() => {props.hideViewDpDwn(props.selectedProp)}}
+            onClick={() => {props.showHideViewDpDwn(props.selectedProp)}}>
+            {selectedLanguage}
+          </button>
+            <div className={classes.LanguagesSet}>
+              <div className={classes.LanguagesSetContainer}>
+                {options}
+              </div>
+            </div>
         </div>
       )
 }

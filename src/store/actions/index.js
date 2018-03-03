@@ -4,6 +4,7 @@ export {
         scrollWorkDown,
         switchToGridView,
         switchToListView,
-        setWorkOpened
+        showHideViewDpDwn,
+        hideViewDpDwn
        } from './UIactions.js';
 export { fetchPfolioData, selectLanguage } from './dataActions.js';

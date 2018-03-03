@@ -12,7 +12,7 @@ const topInfo = (props) => {
         <div
           className={classes.Case}>
           <div
-            className={classes.CaseWord}>Case</div>
+            className={classes.CaseWord}>{props.currentWork.briefInfo.translate}</div>
           <div
             className={classes.Title}>{props.currentWork.title}</div>
           <div className={classes.BriefInfo}>{props.currentWork.briefInfo.briefInfo}</div>

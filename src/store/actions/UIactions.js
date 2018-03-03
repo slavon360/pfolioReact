@@ -27,9 +27,16 @@ export const switchToListView = () => {
       type: actionTypes.SWITCH_TO_LIST_VIEW
     }
 }
-export const setWorkOpened = (val) => {
+export const showHideViewDpDwn = (propName) => {
+    console.log('showHideViewDpDwn')
     return {
-      type: actionTypes.SET_WORK_OPENED,
-      value: val
+      type: actionTypes.SHOW_HIDE_VIEW_DP_DWN,
+      propName: propName
+    }
+}
+export const hideViewDpDwn = (propName) => {
+    return {
+      type: actionTypes.HIDE_VIEW_DP_DWN,
+      propName: propName
     }
 }

@@ -1,0 +1,44 @@
+.BackButtonWrp{
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  position: fixed;
+  z-index: 99;
+  left: 35px;
+  top: 5%;
+  background: #fff;
+  cursor: pointer;
+  transform: rotate(-90deg);
+  animation-name: button-show;
+  animation-fill-mode: forwards;
+  animation-duration: .7s;
+  animation-timing-function: cubic-bezier(1.000, 0.080, 0.190, 1.015);
+}
+.BackButtonWrp::before, .BackButtonWrp::after{
+  content: "";
+  position: absolute;
+  display: inline-block;
+  height: 16px;
+  width: 1px;
+  background: #525453;
+  transform-origin: 0 0;
+  top: 16px;
+  left: 50%;
+  transition: all .3s;
+}
+.BackButtonWrp::before{
+  transform: rotate(45deg);
+}
+.BackButtonWrp::after{
+  transform: rotate(-45deg);
+}
+.BackButtonWrp:hover::before{
+  transform: rotate(55deg) translate(2px, 1px);
+}
+.BackButtonWrp:hover::after{
+  transform: rotate(-55deg) translate(-2px, 1px);;
+}
+@keyframes button-show {
+  0% { left: 35px; }
+  100% { left: 180px; }
+}
