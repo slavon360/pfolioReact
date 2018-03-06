@@ -7,9 +7,25 @@
   color: rgb(85, 86, 88);
 }
 .Greeting{
-  margin: 45px 0 40px;
+  margin: 45px 0 0;
 }
 .BriefInfo{
-  font-size: 21px;
   line-height: 1.5;
+}
+.LeftSide, .RightSide{
+  display: inline-block;
+}
+.LeftSide{
+  width: 30%;
+  color: #fff;
+  font-size: 28px;
+  padding-top: 25%;
+  float: left;
+}
+.RightSide{
+  width: 70%;
+}
+.WorksLink{
+  margin-top: 20%;
+  font-size: 35px;
 }

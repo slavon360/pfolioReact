@@ -90,7 +90,6 @@ class Works extends Component{
                 {works}
                 <ViewsDpDwn
                   selectedProp="showDpDwnView"
-                  tempXAxis={this.state.tempXAxis}
                   gridView={this.props.worksSection.gridView}
                   listView={this.props.worksSection.listView}
                   showDpDwnView={this.props.showDpDwnView}

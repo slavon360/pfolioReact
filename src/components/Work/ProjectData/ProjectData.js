@@ -62,7 +62,7 @@ const projectData = (props) => {
       <div
         onMouseMove={props.mouseMove}
         className={projectDataWrpClasses.join(' ')}>
-        <div className={classes.LeftSide}></div>
+        <div className={classes.LeftSide}>Slavon360</div>
         <div className={classes.RightSide}>
           <NavLink
             to={props.location.pathname + '/' + props.projectInfo.title}

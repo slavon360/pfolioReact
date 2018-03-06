@@ -66,6 +66,9 @@
 }
 .LeftSide{
   width: 40%;
+  font-size: 25px;
+  padding: 40% 0 0 20px;
+  box-sizing: border-box;
 }
 .RightSide{
   width: 60%;
