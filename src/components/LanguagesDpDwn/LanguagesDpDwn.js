@@ -3,7 +3,6 @@ import classes from './LanguagesDpDwn.css';
 
 
 const languagesDpDwn = (props) => {
-    console.log('languagesDpDwn')
     let languagesDpDwnClasses = [classes.LanguagesDpDwn, classes.LanguagesDpDwnInactive];
     props.showDpDwnLanguages && (languagesDpDwnClasses = [classes.LanguagesDpDwn, classes.LanguagesDpDwnActive]);
     let selectedLanguage;

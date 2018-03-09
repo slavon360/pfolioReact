@@ -43,3 +43,51 @@ export const selectLanguage = (lang) => {
       return setLanguage(lang);
     }
 }
+export const submitClientStart = () => {
+    return {
+      type: actionTypes.SUBMIT_CLIENT_START
+    }
+}
+export const submitClientDataSuccess = (clientData) => {
+    return {
+      type: actionTypes.SUBMIT_CLIENT_DATA_SUCCESS,
+      clientData: clientData,
+      showSuccess: true
+    }
+}
+export const hideSuccessIcon = () => {
+    return {
+      type: actionTypes.HIDE_SUCCESS_ICON
+    }
+}
+export const submitClientDataFail = (error) => {
+    return {
+      type: actionTypes.SUBMIT_CLIENT_DATA_FAIL,
+      error: error,
+      showFailure: true
+    }
+}
+export const hideFailureIcon = () => {
+    return {
+      type: actionTypes.HIDE_FAILURE_ICON
+    }
+}
+export const submitClientData = (clientData) => {
+    return dispatch => {
+        dispatch(submitClientStart());
+        axiosPfolio.post('/clients.json', clientData)
+                    .then(response => {
+                      console.log(response.data)
+                      dispatch(submitClientDataSuccess(clientData));
+                      window.setTimeout(() => {
+                        dispatch(hideSuccessIcon());
+                      }, 4000);
+                    })
+                    .catch(error => {
+                      dispatch(submitClientDataFail(error));
+                      window.setTimeout(() => {
+                        dispatch(hideFailureIcon());
+                      }, 4000);
+                    })
+    }
+}

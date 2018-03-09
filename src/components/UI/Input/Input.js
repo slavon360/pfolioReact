@@ -6,6 +6,7 @@ const input = (props) => {
       <input
         {...props.elementConfig}
         className={props.classes}
+        value={props.value}
         onChange={props.inputChange} />
     )
 }

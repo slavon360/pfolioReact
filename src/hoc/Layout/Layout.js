@@ -4,6 +4,7 @@ import Adj from '../Adj/AdjComponent';
 import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer';
 import DrawerToggle from '../../components/Navigation/SideDrawer/DrawerToggle/DrawerToggle';
 import LanguagesDpDwn from '../../components/LanguagesDpDwn/LanguagesDpDwn';
+import Preloader from '../../components/UI/Preloader/Preloader';
 import * as actions from '../../store/actions/index'
 import classes from './Layout.css';
 
@@ -14,14 +15,13 @@ class Layout extends Component {
       }
     }
     componentDidUpdate(){
-      console.log('[Layout] componentDidUpdate')
     }
     shouldComponentUpdate(nextProps, nextState){
       //console.log('[Layout] shouldComponentUpdate', this.props);
       return true;
     }
     render(){
-      let content = <div>Loading...</div>;
+      let content = <Preloader />;
       let wrpClasses = [classes.LayoutWrp, classes.LayoutWrpInactive];
       if (!this.props.openedMenu) {
         wrpClasses = [classes.LayoutWrp, classes.LayoutWrpActive];

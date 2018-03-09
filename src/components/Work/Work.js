@@ -1,8 +1,7 @@
 import React from 'react';
+import throttle from 'react-throttle-render'
 import classes from './Work.css';
-
 const work = (props) => {
-    console.log('work - ', props.workData.title)
     let backgroundImg, backgroundImgStyles = {}, frontImg, frontImgStyles = {}, middleImg, middleImgStyles = {},
     preFrontImg, preFrontImgStyles = {}, containerInnerStyles = {};
     let WorkWrpClasses = [classes.WorkWrp, classes.WorkWrpNormal];
@@ -44,51 +43,51 @@ const work = (props) => {
         }
     }
     return (
-            <div
-              onMouseMove={props.mouseMove}
-              className={WorkWrpClasses.join(' ')}
-              style={{
-                transform: 'translateY('+props.translateYPosition + 'px)',
-                zIndex: props.workData.zIndex ? 50 : 1
-              }}>
-              <div className={classes.ContainerOuter}>
-                <div className={classes.Container}>
-                  <div
-                    className={classes.ContainerInner}
-                    style={containerInnerStyles}>
-                    <img
-                      className={classes.WorkImgBackground}
-                      src={backgroundImg}
-                      alt={props.workData.title}
-                      style={{
-                          transform: backgroundImgStyles.transform
+              <div
+                onMouseMove={props.mouseMove}
+                className={WorkWrpClasses.join(' ')}
+                style={{
+                  transform: 'translateY('+props.translateYPosition + 'px)',
+                  zIndex: props.workData.zIndex ? 50 : 1
+                }}>
+                <div className={classes.ContainerOuter}>
+                  <div className={classes.Container}>
+                    <div
+                      className={classes.ContainerInner}
+                      style={containerInnerStyles}>
+                      <img
+                        className={classes.WorkImgBackground}
+                        src={backgroundImg}
+                        alt={props.workData.title}
+                        style={{
+                            transform: backgroundImgStyles.transform
+                          }} />
+                      <img
+                        className={classes.WorkImgMiddle}
+                        src={middleImg}
+                        alt={props.workData.title}
+                        style={{
+                            transform: middleImgStyles.transform
                         }} />
-                    <img
-                      className={classes.WorkImgMiddle}
-                      src={middleImg}
-                      alt={props.workData.title}
-                      style={{
-                          transform: middleImgStyles.transform
-                      }} />
-                    <img
-                      className={classes.WorkImgPreFront}
-                      src={preFrontImg}
-                      alt={props.workData.title}
-                      style={{
-                          transform: preFrontImgStyles.transform
-                      }} />
-                    <img
-                      className={classes.WorkImgFront}
-                      src={frontImg}
-                      alt={props.workData.title}
-                      style={{
-                          transform: frontImgStyles.transform
-                      }} />
+                      <img
+                        className={classes.WorkImgPreFront}
+                        src={preFrontImg}
+                        alt={props.workData.title}
+                        style={{
+                            transform: preFrontImgStyles.transform
+                        }} />
+                      <img
+                        className={classes.WorkImgFront}
+                        src={frontImg}
+                        alt={props.workData.title}
+                        style={{
+                            transform: frontImgStyles.transform
+                        }} />
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
           );
 }
 
-export default work;
+export default throttle(50)(work);

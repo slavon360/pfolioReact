@@ -2,6 +2,7 @@ import * as actionTypes from '../actions/actionTypes';
 import { objIntoArray } from '../utility';
 
 const initialState = {
+    loading: false,
     pfolioData: null,
     menuKeys: null,
     works: null,
@@ -11,7 +12,10 @@ const initialState = {
                 {language: 'UA', dataName:'pfolioUa', selected: false},
                 {language: 'FR', dataName:'pfolioFr', selected: false}
               ],
-    error: false
+    error: false,
+    clientData: null,
+    showSuccess: false,
+    showFailure: false
 }
 const fetchMenuDataSuccess = (state, action) => {
       let menuKeys = [], currentMenu = action.currentMenu;
@@ -69,6 +73,40 @@ const fetchPfolioDataSuccess = (state, action) => {
         works: worksArray
       }
 }
+const submitClientStart = (state) => {
+      return {
+        ...state,
+        loading: true
+      }
+}
+const submitClientDataSuccess = (state, action) => {
+      return {
+        ...state,
+        loading: false,
+        clientData: action.clientData,
+        showSuccess: action.showSuccess
+      }
+}
+const hideSuccessIcon = (state) => {
+      return {
+        ...state,
+        showSuccess: false
+      }
+}
+const submitClientDataFail = (state, action) => {
+      return {
+        ...state,
+        loading: false,
+        error: action.error,
+        showFailure: action.showFailure
+      }
+}
+const hideFailureIcon = (state) => {
+      return {
+        ...state,
+        showFailure: false
+      }
+}
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
@@ -80,6 +118,16 @@ const reducer = (state = initialState, action) => {
             return selectLanguage(state, action);
         case actionTypes.FETCH_PFOLIO_DATA_SUCCESS:
             return fetchPfolioDataSuccess(state, action);
+        case actionTypes.SUBMIT_CLIENT_START:
+            return submitClientStart(state);
+        case actionTypes.SUBMIT_CLIENT_DATA_SUCCESS:
+            return submitClientDataSuccess(state, action);
+        case actionTypes.SUBMIT_CLIENT_DATA_FAIL:
+            return submitClientDataFail(state, action);
+        case actionTypes.HIDE_SUCCESS_ICON:
+            return hideSuccessIcon(state);
+        case actionTypes.HIDE_FAILURE_ICON:
+            return hideFailureIcon(state);
         default: return state;
     }
 }

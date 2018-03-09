@@ -2,7 +2,6 @@ import React from 'react';
 import classes from './ViewsDpDwn.css';
 
 const viewsDpDwn = (props) =>  {
-      console.log('viewsDpDwn')
       let ViewList = (
                       <div
                         onClick={props.switchToListView}

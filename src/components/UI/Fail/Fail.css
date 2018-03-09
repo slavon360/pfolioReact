@@ -1,0 +1,32 @@
+.FailWrp svg {
+  width: 50px;
+  display: block;
+  margin: 40px auto 0;
+}
+.FailInfo{
+  text-align: center;
+  margin-top: 10px;
+  color: #910;
+  font-size: 18px;
+}
+.Path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 0;
+}
+.Circle {
+  -webkit-animation: dash .9s ease-in-out;
+  animation: dash .9s ease-in-out;
+}
+.Line {
+  stroke-dashoffset: 1000;
+  -webkit-animation: dash .9s .35s ease-in-out forwards;
+  animation: dash .9s .35s ease-in-out forwards;
+}
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}

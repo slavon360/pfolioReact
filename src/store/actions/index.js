@@ -7,4 +7,4 @@ export {
         showHideViewDpDwn,
         hideViewDpDwn
        } from './UIactions.js';
-export { fetchPfolioData, selectLanguage } from './dataActions.js';
+export { fetchPfolioData, selectLanguage, submitClientData } from './dataActions.js';

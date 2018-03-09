@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+//import { Throttle } from 'react-throttle';
 import * as actions from '../../store/actions/index';
 import Work from '../../components/Work/Work';
 import WorkGrid from '../../components/Work/WorkGrid/WorkGrid';
