@@ -1,3 +1,14 @@
 .SkillsWrp{
-  background-color: #fefefe;
+  background-color: #ddd;
+  text-align: center;
+  overflow-y: scroll;
+  height: 100%;
+}
+.SkillsContainer{
+  display: inline-block;
+  width: 80%;
+}
+.Preface{
+  color: #777;
+  text-transform: uppercase;
 }

@@ -4,7 +4,7 @@ import Layout from './hoc/Layout/Layout';
 import About from './containers/About/About';
 import Contact from './containers/Contact/Contact';
 import Works from './containers/Works/Works';
-import Skills from './containers/Skills';
+import Skills from './containers/Skills/Skills';
 import WholeWork from './components/Work/WholeWork/WholeWork';
 import classes from './App.css';
 

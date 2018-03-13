@@ -1,0 +1,74 @@
+.SkillWrp{
+  display: inline-block;
+  width: 25%;
+  margin: 10px 0;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+.SkillContent{
+  background-color: #fefefe;
+  box-shadow: 1px 1px 8px 0 #999;
+  border-radius: 5px;
+  width: 100%;
+  height: 135px;
+  box-sizing: border-box;
+  padding: 10px 20px 40px;
+}
+.SkillTitle{
+  font-size: 18px;
+  color: #444;
+  margin-bottom: 10px;
+}
+.SkillContent img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.SkillIndicatorWrp{
+  padding-top: 4px;
+}
+.SkillIndicatorBar{
+  height: auto;
+}
+.SkillIndicator{
+  border-radius: 3px;
+  height: 4px;
+  margin-bottom: 5px;
+  animation-fill-mode: forwards;
+}
+.Low{
+  animation-name: low-level;
+}
+.Medium{
+  animation-name: medium-level;
+}
+.Hight{
+  animation-name: hight-level;
+}
+.AnimationCount{
+  color: #555;
+  font-weight: 700;
+}
+.AnimationCount::after{
+  content: '%';
+}
+.AnimationCount > div{
+  display: inline-block;
+}
+@keyframes low-level {
+  0% { background-color: red; width: 0; }
+  100% { background-color: red; width: 100%; }
+}
+@keyframes medium-level {
+  0% { background-color: red; width: 0; }
+  49.9% { background-color: red; width: 49.9%; }
+  50% { background-color: yellow; width: 50%; }
+  100% { background-color: yellow; width: 100%; }
+}
+@keyframes hight-level {
+  0% { background-color: red; width: 0; }
+  32.9% { background-color: red; width: 32.9%; }
+  33% { background-color: yellow; width: 33%; }
+  66% { background-color: #1dc51d; width: 66%; }
+  100% { background-color: #1dc51d; width: 100%; }
+}

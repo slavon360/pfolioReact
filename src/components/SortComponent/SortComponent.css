@@ -1,0 +1,57 @@
+.SortComponentWrp{
+  position: fixed;
+  width: 100px;
+  height: auto;
+  border-bottom: 1px solid #999;
+  right: 35px;
+  top: 4%;
+}
+.SortWord, .SortButton{
+  display: inline-block;
+  height: 30px;
+}
+.SortWord{
+  float: left;
+  line-height: 1.9;
+}
+.SortButton{
+  position: relative;
+  box-sizing: border-box;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.SortButton::after{
+  content: '';
+  position: absolute;
+  right: -8px;
+  top: 14px;
+  border-top: 4px solid #000;
+  border-bottom: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+}
+.SortButton:hover, .SortButton:focus{
+  color: #FF9800;
+}
+.SortButton:hover::after, .SortButton:focus::after{
+  border-top-color: #FF9800;
+}
+.SortContainer{
+  position: absolute;
+  top: 40px;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 15px;
+}
+.SortContainerHidden{
+  display: none;
+}
+.SortContainerVisible{
+  display: block;
+}
+.ParamWrp{
+  text-align: right;
+  margin: 5px 0; 
+}
