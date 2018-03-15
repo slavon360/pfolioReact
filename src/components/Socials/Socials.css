@@ -1,0 +1,101 @@
+.SocialsWrp{
+}
+.SocialDescription{
+  margin-bottom: 20px;
+}
+.Facebook, .Linkedin, .Twitter, .Github{
+  display: inline-block;
+  margin: 0 8px 8px 0;
+  width: 130px;
+  height: 40px;
+  position: relative;
+  z-index: 10;
+  text-decoration: none;
+  color: #eee;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.Facebook.RightPositioned .Container, .Linkedin.RightPositioned .Container,
+.Twitter.RightPositioned .Container, .Github.RightPositioned .Container{
+  transform: skewY(1deg);
+}
+.Facebook.RightPositioned .ShadowTwo, .Linkedin.RightPositioned .ShadowTwo,
+.Twitter.RightPositioned .ShadowTwo, .Github.RightPositioned .ShadowTwo{
+  transform: skewY(-1deg);
+}
+.Facebook.LeftPositioned .Container, .Linkedin.LeftPositioned .Container,
+.Twitter.LeftPositioned .Container, .Github.LeftPositioned .Container{
+  transform: skewY(-1deg);
+}
+.Facebook.LeftPositioned .ShadowTwo, .Linkedin.LeftPositioned .ShadowTwo,
+.Twitter.LeftPositioned .ShadowTwo, .Github.LeftPositioned .ShadowTwo{
+  transform: skewY(1deg);
+}
+.Facebook.MiddlePositioned .ShadowTwo, .Linkedin.MiddlePositioned .ShadowTwo,
+.Twitter.MiddlePositioned .ShadowTwo, .Github.MiddlePositioned .ShadowTwo{
+  transform: translate3d(0, -1px, 0);
+}
+.Facebook.MiddlePositioned .Container, .Linkedin.MiddlePositioned .Container,
+.Twitter.MiddlePositioned .Container, .Github.MiddlePositioned .Container{
+  transform: translate3d(0, 1px, 0);
+}
+.Facebook .Container, .Linkedin .Container, .Twitter .Container, .Github .Container{
+  position: absolute;
+  top:0;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 3px;
+}
+.Container, .ShadowTwo{
+  transition: transform .2s;
+}
+.Container svg{
+  transform: translate(-3px, 7px);
+}
+.Facebook .Container{
+  background-color: #4868ad;
+}
+.Facebook .ShadowOne{
+  background-color: #2f4370;
+}
+.Linkedin .Container{
+  background-color: #0077b5;
+}
+.Linkedin .ShadowOne{
+  background-color: #003e5e;
+}
+.Twitter .Container{
+  background-color: #00aced;
+}
+.Twitter .ShadowOne{
+  background-color: #006d96;
+}
+.Github .Container{
+  background-color: #4f4f4f;
+}
+.Github .ShadowOne{
+  background-color: #353535;
+}
+.Github .ShadowTwo, .Twitter .ShadowTwo, .Linkedin .ShadowTwo, .Facebook .ShadowTwo{
+  background-color: rgba(0,0,0,.24);
+}
+.Facebook .ShadowOne, .Linkedin .ShadowOne, .Twitter .ShadowOne, .Github .ShadowOne,
+.Facebook .ShadowTwo, .Linkedin .ShadowTwo, .Twitter .ShadowTwo, .Github .ShadowTwo{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  border-radius: 3px;
+}
+.Facebook .ShadowOne, .Linkedin .ShadowOne, .Twitter .ShadowOne, .Github .ShadowOne{
+  z-index: -1;
+  top: 3px;
+}
+.Facebook .ShadowTwo, .Linkedin .ShadowTwo, .Twitter .ShadowTwo, .Github .ShadowTwo{
+  z-index: -2;
+  top: 6px;
+}

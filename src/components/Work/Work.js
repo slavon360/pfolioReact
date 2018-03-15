@@ -90,4 +90,4 @@ const work = (props) => {
           );
 }
 
-export default throttle(50)(work);
+export default throttle(150)(work);

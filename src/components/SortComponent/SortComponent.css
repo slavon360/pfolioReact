@@ -1,6 +1,7 @@
 .SortComponentWrp{
   position: fixed;
-  width: 100px;
+  z-index: 100;
+  width: 150px;
   height: auto;
   border-bottom: 1px solid #999;
   right: 35px;
@@ -21,6 +22,10 @@
   border: none;
   outline: none;
   cursor: pointer;
+  text-transform: uppercase;
+}
+.SortButton span{
+  line-height: 1.8;
 }
 .SortButton::after{
   content: '';
@@ -32,10 +37,11 @@
   border-right: 4px solid transparent;
   border-left: 4px solid transparent;
 }
-.SortButton:hover, .SortButton:focus{
+.SortButton:hover, .SortComponentWrpActive .SortButton{
   color: #FF9800;
+  fill: #FF9800;
 }
-.SortButton:hover::after, .SortButton:focus::after{
+.SortButton:hover::after, .SortComponentWrpActive .SortButton::after{
   border-top-color: #FF9800;
 }
 .SortContainer{
@@ -43,15 +49,22 @@
   top: 40px;
   width: 100%;
   box-sizing: border-box;
-  padding-right: 15px;
+  padding-left: 25px;
 }
-.SortContainerHidden{
+.SortComponentWrpInactive .SortContainer{
   display: none;
 }
-.SortContainerVisible{
+.SortComponentWrpActive .SortContainer{
   display: block;
 }
 .ParamWrp{
-  text-align: right;
-  margin: 5px 0; 
+  text-align: center;
+  margin: 5px 0;
+  padding-bottom: 3px;
+  border-bottom: 1px solid #999;
+  cursor: pointer;
+}
+.ParamWrp:hover, .ParamWrp:hover svg{
+  fill: #FF9800;
+  color: #FF9800;
 }

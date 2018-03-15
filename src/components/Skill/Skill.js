@@ -30,7 +30,7 @@ const skill = (props) => {
               <div className={classes.SkillIndicatorBar} style={{width: percents + '%'}}>
                 <div
                   className={indicatorClasses.join(' ')}
-                  style={{animationDuration: props.animDuration/1000 + 's'}}></div>
+                  style={{animationDuration: props.animDuration/1000 - 0.8 + 's'}}></div>
               </div>
               <div className={classes.AnimationCount}>
                 <AnimationCount {...params} />

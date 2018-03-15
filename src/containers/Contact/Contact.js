@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index';
 import classes from './Contact.css';
+import Socials from '../../components/Socials/Socials';
 import NameIcon from '../../assets/svg/NameIcon/NameIcon';
 import MailIcon from '../../assets/svg/MailIcon/MailIcon';
 import SubmitIcon from '../../assets/svg/SubmitIcon/SubmitIcon';
@@ -171,13 +172,16 @@ class Contact extends Component{
       }
 
       return (
-        <div className={classes.ContactWrp}>
-          <h2 className={classes.Preface}>{contact.preface}</h2>
-          <form onSubmit={this.clientFormHandler} className={classes.FormWrp}>
-            {inputs}
-          </form>
-            {feedback}
-            {preloader}
+        <div className={classes.ContactWrpOuter}>
+          <div className={classes.ContactWrp}>
+            <h2 className={classes.Preface}>{contact.preface}</h2>
+            <form onSubmit={this.clientFormHandler} className={classes.FormWrp}>
+              {inputs}
+            </form>
+              {feedback}
+              {preloader}
+              <Socials contact={contact} />
+          </div>
         </div>
       );
     }
