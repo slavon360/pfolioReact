@@ -1,4 +1,5 @@
 .SocialsWrp{
+  text-align: right;
 }
 .SocialDescription{
   margin-bottom: 20px;
@@ -15,6 +16,11 @@
   font-size: 13px;
   font-weight: 700;
   text-transform: uppercase;
+  outline: none;
+}
+.Facebook[tabindex]:active .Container, .Linkedin[tabindex]:active .Container,
+.Twitter[tabindex]:active .Container, .Github[tabindex]:active .Container{
+  transform: translate3d(0, 2px, 0);
 }
 .Facebook.RightPositioned .Container, .Linkedin.RightPositioned .Container,
 .Twitter.RightPositioned .Container, .Github.RightPositioned .Container{
@@ -98,4 +104,30 @@
 .Facebook .ShadowTwo, .Linkedin .ShadowTwo, .Twitter .ShadowTwo, .Github .ShadowTwo{
   z-index: -2;
   top: 6px;
+}
+@media only screen and (width: 1366px) and (height: 1024px){
+  .SocialsWrp{
+    margin-top: 200px;
+  }
+}
+@media screen and (max-width: 767px){
+  .SocialsWrp{
+    text-align: center;
+  }
+}
+@media screen and (min-height: 720px) and (min-width: 767px){
+  .SocialsWrp{
+    margin-top: 100px;
+  }
+}
+@media screen and (min-height: 780px) and (min-width: 767px){
+  .SocialsWrp{
+    margin-top: 180px;
+  }
+}
+@media screen and (max-width: 500px){
+  .SocialsWrp a{
+    display: block;
+    margin: 20px auto;
+  }
 }

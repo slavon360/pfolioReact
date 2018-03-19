@@ -79,7 +79,11 @@ class Socials extends Component{
             <p className={classes.SocialDescription}>{contact.socialDescription}</p>
             <a  onMouseMove={(event) => {this.onHoverButton(event, 'Facebook')}}
                 onMouseLeave={(event) => {this.onLeaveButton(event, 'Facebook')}}
-                className={facebookClasses.join(' ')} href="#">
+                className={facebookClasses.join(' ')}
+                href="https://www.facebook.com/viacheslav360"
+                target="_blank"
+                rel="noopener noreferrer"
+                tabIndex="1">
               <div className={classes.Container}>
                 <span><FacebookIcon /></span>
                 facebook
@@ -89,7 +93,11 @@ class Socials extends Component{
             </a>
             <a  onMouseMove={(event) => {this.onHoverButton(event, 'Linkedin')}}
                 onMouseLeave={(event) => {this.onLeaveButton(event, 'Linkedin')}}
-                className={linkedinClasses.join(' ')} href="#">
+                className={linkedinClasses.join(' ')}
+                target="_blank"
+                rel="noopener noreferrer"
+                tabIndex="1"
+                href="https://www.linkedin.com/in/viacheslav-liakh/">
               <div className={classes.Container}>
                 <span><LinkedinIcon /></span>
                 linkedin
@@ -99,7 +107,11 @@ class Socials extends Component{
             </a>
             <a  onMouseMove={(event) => {this.onHoverButton(event, 'Twitter')}}
                 onMouseLeave={(event) => {this.onLeaveButton(event, 'Twitter')}}
-                className={twitterClasses.join(' ')} href="#">
+                className={twitterClasses.join(' ')}
+                target="_blank"
+                rel="noopener noreferrer"
+                tabIndex="1"
+                href="https://twitter.com/slavon360">
               <div className={classes.Container}>
                 <span><TwitterIcon /></span>
                 twitter
@@ -109,7 +121,11 @@ class Socials extends Component{
             </a>
             <a  onMouseMove={(event) => {this.onHoverButton(event, 'Github')}}
                 onMouseLeave={(event) => {this.onLeaveButton(event, 'Github')}}
-                className={githubClasses.join(' ')} href="#">
+                className={githubClasses.join(' ')}
+                target="_blank"
+                rel="noopener noreferrer"
+                tabIndex="1"
+                href="https://github.com/slavon360">
               <div className={classes.Container}>
                 <span><GithubIcon />github</span>
               </div>

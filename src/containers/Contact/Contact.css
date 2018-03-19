@@ -12,11 +12,11 @@
 }
 .Preface{
   text-align: center;
-  margin-top: 5%;
+  margin-top: 55px;
 }
 .FormWrp{
   width: 75%;
-  margin: 5% auto;
+  margin: 30px auto 45px;
 }
 .name, .email, .message{
   position: relative;
@@ -114,4 +114,49 @@
 }
 .HelpEmailShow{
   display: block;
+}
+@media only screen and (width: 1366px) and (height: 1024px){
+  .FormWrp{
+    margin-top: 55px;
+  }
+  .FormWrp .name, .FormWrp .email, .FormWrp .message{
+    margin-bottom: 65px;
+  }
+  .Preface{
+    margin-top: 65px;
+    margin-bottom: 70px;
+  }
+}
+@media screen and (min-height: 620px){
+  .ContactWrp{
+    height: 100%;
+  }
+}
+@media screen and (max-width: 500px){
+  .ContactWrp{
+    height: auto;
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+  .FormWrp{
+    width: 95%;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1024px){
+  .Preface{
+    margin-top: 75px;
+    margin-bottom: 40px;
+  }
+}
+@media only screen and (width: 1024px) and (height: 1366px){
+  .Preface{
+    margin-top: 85px;
+    margin-bottom: 70px;
+  }
+  .FormWrp{
+    margin-bottom: 155px;
+  }
+  .FormWrp .name, .FormWrp .email, .FormWrp .message{
+    margin-bottom: 65px;
+  }
 }

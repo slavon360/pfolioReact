@@ -16,6 +16,21 @@
   transition: transform 0s;
 }
 .NavHead{
-  margin: 3% 0 10%;
+  margin: 20px 0 10%;
   color: rgb(185, 191, 187);
+}
+@media screen and (max-width: 811px){
+  .NavigationItems{
+    padding-left: 35%;
+  }
+}
+@media screen and (max-width: 767px){
+  .NavHead{
+    visibility: hidden;
+  }
+}
+@media screen and (max-width: 500px){
+  .NavHead{
+    padding-bottom: 45%;
+  }
 }

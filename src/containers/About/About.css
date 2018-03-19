@@ -19,7 +19,7 @@
   width: 30%;
   color: #fff;
   font-size: 28px;
-  padding-top: 25%;
+  padding-top: 25vh;
   float: left;
 }
 .RightSide{
@@ -28,4 +28,46 @@
 .WorksLink{
   margin-top: 20%;
   font-size: 35px;
+}
+@media screen and (min-width: 1367px){
+  .BriefInfo{
+    line-height: 2;
+  }
+  .RightSide{
+    padding-top: 40px;
+  }
+}
+@media only screen and (width: 1024px) and (height: 1366px){
+  .RightSide{
+    line-height: 2;
+    padding-top: 30px;
+  }
+  .BriefInfo{
+    line-height: 1.8;
+  }
+}
+@media screen and (max-width: 767px){
+  .AboutWrp{
+    border: none;
+    overflow-y: auto;
+  }
+  .LeftSide{
+    display: none;
+  }
+  .RightSide{
+    display: block;
+    width: 100%;
+  }
+  .Greeting{
+    margin-top: 75px;
+  }
+  .WorksLink{
+    margin-top: 35px;
+  }
+}
+@media only screen and (width: 812px) and (height: 375px){
+  .AboutWrp{
+    border: none;
+    overflow-y: auto;
+  }
 }
