@@ -5,7 +5,7 @@
   position: fixed;
   z-index: 99;
   left: 35px;
-  top: 5%;
+  top: 35px;
   background: #fff;
   cursor: pointer;
   transform: rotate(-90deg);

@@ -42,3 +42,28 @@
   text-decoration: none;
   font-weight: 700;
 }
+@media screen and (max-width: 992px){
+  .ParagraphsWrp{
+    padding-left: 0;
+  }
+  .FirstParag, .SecondParag{
+    box-sizing: border-box;
+    padding-right: 0;
+    width: 50%;
+  }
+  .FirstParag{
+    padding-right: 10px;
+  }
+  .TechWrp, .LinkWrp{
+    padding-left: 0;
+    display: inline-block;
+    width: 50%;
+  }
+  .LinkWrp{
+    margin-top: 1em;
+    text-align: right;
+  }
+  .LinkWrp > div:first-child{
+    margin-bottom: 35px;
+  }
+}

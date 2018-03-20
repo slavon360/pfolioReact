@@ -6,6 +6,7 @@
   position: relative;
   z-index: 100;
   color: #fff;
+  overflow: hidden;
 }
 .RightSide:hover .Ball{
   transform: rotate(180deg);
@@ -88,6 +89,9 @@
 }
 .Title, .BriefInfo{
   font-size: 26px;
+}
+.Title{
+  margin-bottom: 10px;
 }
 .BriefInfo{
   margin-bottom: 30px;
@@ -561,5 +565,69 @@
   100% {
     transform: translateY(0);
     opacity: 1;
+  }
+}
+@media screen and (max-width: 992px){
+  .ProjectDataWrp{
+    margin-top: 100px;
+    height: calc(100% - 200px);
+  }
+  .LeftSide{
+    display: none;
+  }
+  .RightSide{
+    width: 100%;
+    padding: 0 15px;
+  }
+  .DescriptionText{
+    display: none;
+  }
+}
+@media only screen and (width: 768px) and (height: 1024px){
+  .DescriptionText{
+    display: block;
+    margin-top: 15px;
+    line-height: 1.8;
+  }
+}
+@media screen and (max-height: 500px){
+  .RightSide{
+    padding-top: 15px;
+  }
+  .Header, .Case{
+    display: none;
+  }
+  .Title{
+    font-size: 18px;
+  }
+  .BriefInfo{
+    font-size: 17px;
+    margin-bottom: 15px;
+  }
+  .Description{
+    margin-top: 15px;
+  }
+}
+@media only screen and (height: 568px) and (width: 320px){
+  .Title{
+    font-size: 17px;
+  }
+  .BriefInfo{
+    font-size: 18px;
+  }
+}
+@media only screen and (width: 568px) and (height: 320px){
+  .Title{
+    font-size: 15px;
+  }
+  .BriefInfo{
+    font-size: 15px;
+    margin-bottom: 0;
+  }
+  .Description{
+    margin-top: 0;
+  }
+  .Description .Ball{
+    transform: scale(.7);
   }
 }

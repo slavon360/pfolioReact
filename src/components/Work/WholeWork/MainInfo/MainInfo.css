@@ -11,8 +11,11 @@
 .Description{
   font-weight: 700;
   width: 75%;
-}
-.Description{
-  margin-top: 15%;
+  margin-top: 30px;
   font-size: 28px;
+}
+@media screen and (max-width: 992px){
+  .Description{
+    width: 100%;
+  }
 }

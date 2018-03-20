@@ -5,7 +5,7 @@
   height: auto;
   border-bottom: 1px solid #999;
   right: 35px;
-  top: 4%;
+  top: 36px;
 }
 .SortWord, .SortButton{
   display: inline-block;
@@ -50,6 +50,7 @@
   width: 100%;
   box-sizing: border-box;
   padding-left: 25px;
+  background: rgba(0,0,0, .3);
 }
 .SortComponentWrpInactive .SortContainer{
   display: none;
@@ -61,10 +62,20 @@
   text-align: center;
   margin: 5px 0;
   padding-bottom: 3px;
-  border-bottom: 1px solid #999;
   cursor: pointer;
+  color: #fff;
+  fill: #fff;
 }
 .ParamWrp:hover, .ParamWrp:hover svg{
   fill: #FF9800;
   color: #FF9800;
+}
+@media only screen and (width: 320px) and (height: 568px){
+  .SortComponentWrp{
+    width: 130px;
+    font-size: 10px;
+  }
+  .SortWord{
+    line-height: 3.3;
+  }
 }

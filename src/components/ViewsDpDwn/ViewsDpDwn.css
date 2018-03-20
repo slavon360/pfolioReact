@@ -5,7 +5,7 @@
   height: 36px;
   padding: 2px;
   box-sizing: border-box;
-  top: 5%;
+  top: 35px;
   right: 35px;
   background: rgba(0,0,0, .35);
   box-shadow: 0 0 6px 1px #fff;
@@ -121,4 +121,21 @@
 .ViewsDpDwnSelected .ViewList > div::before,
 .ViewsDpDwnSelected .ViewList > div::after{
   background: #FF9800;
+}
+_:-moz-tree-row(hover), .ViewsDpDwnSelected .ViewGrid{
+  padding: 0;
+}
+_:-moz-tree-row(hover), .ViewGrid > div{
+  transform: translateY(-3px);
+}
+_:-moz-tree-row(hover), .ViewGrid > div:nth-child(3),
+.ViewGrid > div:nth-child(4){
+  transform: translateY(-9px);
+}
+_:-moz-tree-row(hover), .ViewsDpDwnSelected .ViewGrid > div{
+  transform: translateY(0);
+}
+_:-moz-tree-row(hover), .ViewsDpDwnSelected .ViewGrid > div:nth-child(3),
+.ViewsDpDwnSelected .ViewGrid > div:nth-child(4){
+  transform: translateY(-3px);
 }

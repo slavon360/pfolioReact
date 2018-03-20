@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-//import { Throttle } from 'react-throttle';
+//import { debounce, throttle } from 'throttle-debounce';
 import * as actions from '../../store/actions/index';
 import Work from '../../components/Work/Work';
 import WorkGrid from '../../components/Work/WorkGrid/WorkGrid';
@@ -16,15 +16,18 @@ class Works extends Component{
       xAxis: 0,
       yAxis: 0,
       tempXAxis: null,
-      tempYAxis: null
+      tempYAxis: null,
+      currentDate: Date.now()
     }
 
     componentDidMount(){
       this.updateWindowDimensions();
+      window.addEventListener('wheel', this.onScrollHandler);
       window.addEventListener('resize', this.updateWindowDimensions, true);
     }
     componentWillUnmount(){
-      console.log('WORKS [componentWillUnmount]')
+      console.log('WORKS [componentWillUnmount]');
+      window.removeEventListener('wheel', this.onScrollHandler);
       window.removeEventListener('resize', this.updateWindowDimensions, true);
     }
     updateWindowDimensions = () => {
@@ -37,21 +40,37 @@ class Works extends Component{
       })
     }
     mouseMoveHandler = (event) => {
-      (this.state.tempYAxis || this.state.tempXAxis) && this.setState({tempXAxis: null, tempYAxis: null});
-      this.setState({xAxis: event.screenX, yAxis: event.screenY});
+      if (this.props.worksSection.listView){
+        (this.state.tempYAxis || this.state.tempXAxis) && this.setState({tempXAxis: null, tempYAxis: null});
+        this.setState({xAxis: event.screenX, yAxis: event.screenY});
+      }
     }
     scrollWorkUp = (worksNumber, event) => {
       //this.mouseMoveHandler(event);
-      this.setState({tempXAxis: event.screenX, tempYAxis: event.screenY});
-      this.props.onScrollWorkUp(worksNumber);
+      this.setState({tempXAxis: event.screenX, tempYAxis: event.screenY}, () => {
+        this.props.onScrollWorkUp(worksNumber);
+      });
     }
     scrollWorkDown = (worksNumber, event) => {
       //this.mouseMoveHandler(event);
-      this.setState({tempXAxis: event.screenX, tempYAxis: event.screenY});
-      this.props.onScrollWorkDown(worksNumber);
+      this.setState({tempXAxis: event.screenX, tempYAxis: event.screenY}, () => {
+        this.props.onScrollWorkDown(worksNumber);
+      });
     }
-
+    onScrollHandler = (e) => {
+      if (this.props.worksSection.listView && e.deltaY > 0 && Date.now() - this.state.currentDate > 1000) {
+        this.setState({currentDate: Date.now()}, () => {
+            this.scrollWorkDown(this.props.works.length-1, e);
+        })
+      }
+      if (this.props.worksSection.listView && e.deltaY < 0 && Date.now() - this.state.currentDate > 1000) {
+        this.setState({currentDate: Date.now()}, () => {
+            this.scrollWorkUp(this.props.works.length-1, e);
+        })
+      }
+    }
     render(){
+      console.log('Works')
       let currentWorkIndex = this.props.currentWorkIndex;
       let works = this.props.works.map((work, index, worksArr) => {
           let currentWork;
@@ -87,7 +106,8 @@ class Works extends Component{
       let worksWrpClasses = [classes.WorksWrp];
       this.props.worksSection.gridView && (worksWrpClasses = [classes.WorksWrpScroll]);
       return (
-              <div className={worksWrpClasses.join(' ')}>
+              <div
+                className={worksWrpClasses.join(' ')}>
                 {works}
                 <ViewsDpDwn
                   selectedProp="showDpDwnView"
@@ -104,7 +124,8 @@ class Works extends Component{
                   mouseMove={this.mouseMoveHandler}
                   projectInfo={this.props.works[currentWorkIndex]}
                   scrollDown={this.props.scrollDown}
-                  scrollUp={this.props.scrollUp} />
+                  scrollUp={this.props.scrollUp}
+                  tempYAxis={this.state.tempYAxis} />
                 <ScrollNav
                   worksSection={this.props.worksSection}
                   worksNumber={this.props.works.length-1}

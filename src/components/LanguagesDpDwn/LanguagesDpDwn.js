@@ -5,6 +5,7 @@ import classes from './LanguagesDpDwn.css';
 const languagesDpDwn = (props) => {
     let languagesDpDwnClasses = [classes.LanguagesDpDwn, classes.LanguagesDpDwnInactive];
     props.showDpDwnLanguages && (languagesDpDwnClasses = [classes.LanguagesDpDwn, classes.LanguagesDpDwnActive]);
+    props.isWorksPath && languagesDpDwnClasses.push(classes.LanguagesDpDwnWhite);
     let selectedLanguage;
     let options = props.languages.map((lang) => {
                     lang.selected && (selectedLanguage = lang.language);

@@ -11,6 +11,7 @@
   flex-wrap: wrap;
   padding: 0 14%;
   flex-flow: row wrap;
+  margin-top: 40px;
 }
 .Preface{
   color: #777;
@@ -26,8 +27,26 @@
   z-index: 1;
 }
 .SkillHidden{
-  width: 0;
+  width: 0 !important;
   height: 0;
   padding: 0;
   z-index: -1;
+}
+@media screen and (max-width: 992px){
+  .SkillWrpOuter{
+    width: 33.33%;
+  }
+  .Preface{
+    margin-top: 105px;
+  }
+}
+@media screen and (max-width: 767px){
+  .SkillWrpOuter{
+    width: 50%;
+  }
+}
+@media screen and (max-width: 500px){
+  .SkillWrpOuter{
+    width: 100%;
+  }
 }

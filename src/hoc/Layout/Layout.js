@@ -9,12 +9,17 @@ import * as actions from '../../store/actions/index'
 import classes from './Layout.css';
 
 class Layout extends Component {
+    state = {
+      isWorksPath: false
+    }
     componentDidMount(){
       if (!this.props.menuKeys){
         this.props.onfetchPfolioData();
       }
     }
     componentDidUpdate(){
+      window.location.pathname === '/works' && !this.state.isWorksPath && this.setState({isWorksPath: true});
+      window.location.pathname !== '/works' && this.state.isWorksPath && this.setState({isWorksPath: false});
     }
     shouldComponentUpdate(nextProps, nextState){
       //console.log('[Layout] shouldComponentUpdate', this.props);
@@ -34,6 +39,7 @@ class Layout extends Component {
               openedMenu={this.props.openedMenu}
               toggleDrawer={this.props.onToggleDrawer}/>
             <LanguagesDpDwn
+              isWorksPath={this.state.isWorksPath}
               selectedProp="showDpDwnLanguages"
               showDpDwnLanguages={this.props.showDpDwnLanguages}
               languages={this.props.languages}

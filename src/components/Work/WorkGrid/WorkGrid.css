@@ -101,3 +101,20 @@
 .Kernel::after{
   right: -8px;
 }
+@media screen and (max-width: 992px){
+  .BriefInfoWrp{
+    opacity: 1;
+  }
+  .BriefInfoWrp > div{
+    margin-bottom: 10px;
+  }
+  .Ball{
+    margin-top: 20px;
+  }
+}
+@media screen and (max-width: 768px){
+  .WorkGridWrp{
+    width: 100%;
+    height: 100%;
+  }
+}

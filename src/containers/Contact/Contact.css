@@ -127,6 +127,11 @@
     margin-bottom: 70px;
   }
 }
+@media screen and (max-width: 992px){
+  .name, .email, .message{
+    margin-bottom: 70px;
+  }
+}
 @media screen and (min-height: 620px){
   .ContactWrp{
     height: 100%;

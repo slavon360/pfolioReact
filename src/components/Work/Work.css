@@ -65,3 +65,8 @@
 .WorkImgFront{
   transform: translate3d(0, 0, 485px);
 }
+@media screen and (max-width: 1024px){
+  .WorkImgMiddle, .WorkImgPreFront, .WorkImgFront{
+    display: none;
+  }
+}
