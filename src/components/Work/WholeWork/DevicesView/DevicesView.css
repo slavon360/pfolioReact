@@ -1,7 +1,11 @@
 .DevicesViewWrp{
   margin-top: 20px;
+  background-color: rgba(45,58,60,1);
+  text-align: center;
+  height: 100vh;
 }
 .DevicesViewWrp img{
   width: 100%;
+  height: 100%;
   object-fit: contain;
 }

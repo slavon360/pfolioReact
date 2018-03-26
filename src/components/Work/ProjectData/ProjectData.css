@@ -101,119 +101,172 @@
   line-height: 1.3;
   font-size: 14px;
 }
-.Case_Scroll_Up{
+.DescriptionText{
+  line-height: 1.5;
+}
+.ProjectDataWrp_Scroll_Up .Case{
   animation-name: case-scroll-up;
   animation-duration: 1s;
-  animation-delay: .12s;
+  animation-delay: .24s;
 }
-.Case_Scroll_Up_One{
+.ProjectDataWrp_Scroll_Up_One .Case{
   animation-name: case-scroll-up-one;
   animation-duration: 1s;
-  animation-delay: .12s;
+  animation-delay: .24s;
 }
-.Case_Scroll_Up_Two{
+.ProjectDataWrp_Scroll_Up_Two .Case{
   animation-name: case-scroll-up;
   animation-duration: 1s;
-  animation-delay: .12s;
+  animation-delay: .24s;
 }
-.Title_Scroll_Up{
+.ProjectDataWrp_Scroll_Up .Title{
   animation-name: title-scroll-up;
   animation-duration: 1s;
-  animation-delay: .06s;
+  animation-delay: .18s;
 }
-.Title_Scroll_Up_One{
+.ProjectDataWrp_Scroll_Up_One .Title{
   animation-name: title-scroll-up-one;
   animation-duration: 1s;
-  animation-delay: .06s;
+  animation-delay: .18s;
 }
-.Title_Scroll_Up_Two{
+.ProjectDataWrp_Scroll_Up_Two .Title{
   animation-name: title-scroll-up;
   animation-duration: 1s;
-  animation-delay: .06s;
+  animation-delay: .18s;
 }
-.BriefInfo_Scroll_Up{
+.ProjectDataWrp_Scroll_Up .BriefInfo{
   animation-name: brief-info-scroll-up;
   animation-duration: 1s;
-  animation-delay: .03s;
+  animation-delay: .12s;
 }
-.BriefInfo_Scroll_Up_One{
+.ProjectDataWrp_Scroll_Up_One .BriefInfo{
   animation-name: brief-info-scroll-up-one;
   animation-duration: 1s;
-  animation-delay: .03s;
+  animation-delay: .12s;
 }
-.BriefInfo_Scroll_Up_Two{
+.ProjectDataWrp_Scroll_Up_Two .BriefInfo{
   animation-name: brief-info-scroll-up;
   animation-duration: 1s;
+  animation-delay: .12s;
+}
+.ProjectDataWrp_Scroll_Up .Ball{
+  animation-name: description-scroll-up-ball;
+  animation-duration: 1s;
+  animation-delay: .06s;
+}
+.ProjectDataWrp_Scroll_Up_One .Ball{
+  animation-name: description-scroll-up-ball-one;
+  animation-duration: 1s;
+  animation-delay: .06s;
+}
+.ProjectDataWrp_Scroll_Up_Two .Ball{
+  animation-name: description-scroll-up-ball;
+  animation-duration: 1s;
+  animation-delay: .06s;
+}
+.ProjectDataWrp_Scroll_Up_One .SeeMore{
+  animation-name: description-scroll-up-see-more-one;
+  animation-duration: 1s;
   animation-delay: .03s;
 }
-.Description_Scroll_Up{
-  animation-name: description-scroll-up;
+.ProjectDataWrp_Scroll_Up .SeeMore, .ProjectDataWrp_Scroll_Up_Two .SeeMore{
+  animation-name: description-scroll-up-see-more;
+  animation-duration: 1s;
+  animation-delay: .03s;
+}
+.ProjectDataWrp_Scroll_Up .DescriptionText{
+  animation-name: description-scroll-up-text;
   animation-duration: 1s;
 }
-.Description_Scroll_Up_One{
-  animation-name: description-scroll-up-one;
+.ProjectDataWrp_Scroll_Up_One .DescriptionText{
+  animation-name: description-scroll-up-text-one;
   animation-duration: 1s;
 }
-.Description_Scroll_Up_Two{
-  animation-name: description-scroll-up;
+.ProjectDataWrp_Scroll_Up_Two .DescriptionText{
+  animation-name: description-scroll-up-text;
   animation-duration: 1s;
 }
-.Case_Scroll_Down{
+.ProjectDataWrp_Scroll_Down .Case{
   animation-name: case-scroll-down;
   animation-duration: 1s;
 }
-.Case_Scroll_Down_One{
+.ProjectDataWrp_Scroll_Down_One .Case{
   animation-name: case-scroll-down-one;
   animation-duration: 1s;
 }
-.Case_Scroll_Down_Two{
+.ProjectDataWrp_Scroll_Down_Two .Case{
   animation-name: case-scroll-down;
   animation-duration: 1s;
 }
-.Title_Scroll_Down{
+.ProjectDataWrp_Scroll_Down .Title{
   animation-name: title-scroll-down;
   animation-duration: 1s;
-  animation-delay: .03s;
+  animation-delay: .06s;
 }
-.Title_Scroll_Down_One{
+.ProjectDataWrp_Scroll_Down_One .Title{
   animation-name: title-scroll-down-one;
   animation-duration: 1s;
-  animation-delay: .03s;
+  animation-delay: .06s;
 }
-.Title_Scroll_Down_Two{
+.ProjectDataWrp_Scroll_Down_Two .Title{
   animation-name: title-scroll-down;
   animation-duration: 1s;
-  animation-delay: .03s;
-}
-.BriefInfo_Scroll_Down{
-  animation-name: brief-info-scroll-down;
-  animation-duration: 1s;
   animation-delay: .06s;
 }
-.BriefInfo_Scroll_Down_One{
+.ProjectDataWrp_Scroll_Down .BriefInfo{
+  animation-name: brief-info-scroll-down;
+  animation-duration: 1s;
+  animation-delay: .12s;
+}
+.ProjectDataWrp_Scroll_Down_One .BriefInfo{
   animation-name: brief-info-scroll-down-one;
   animation-duration: 1s;
-  animation-delay: .06s;
+  animation-delay: .12s;
 }
-.BriefInfo_Scroll_Down_Two{
+.ProjectDataWrp_Scroll_Down_Two .BriefInfo{
   animation-name: brief-info-scroll-down;
   animation-duration: 1s;
-  animation-delay: .06s;
-}
-.Description_Scroll_Down{
-  animation-name: description-scroll-down;
-  animation-duration: 1s;
   animation-delay: .12s;
 }
-.Description_Scroll_Down_One{
-  animation-name: description-scroll-down-one;
+.ProjectDataWrp_Scroll_Down .Ball{
+  animation-name: description-scroll-down-ball;
   animation-duration: 1s;
-  animation-delay: .12s;
+  animation-delay: .18s;
 }
-.Description_Scroll_Down_Two{
-  animation-name: description-scroll-down;
+.ProjectDataWrp_Scroll_Down_One .Ball{
+  animation-name: description-scroll-down-ball-one;
   animation-duration: 1s;
-  animation-delay: .12s;
+  animation-delay: .18s;
+}
+.ProjectDataWrp_Scroll_Down_Two .Ball{
+  animation-name: description-scroll-down-ball;
+  animation-duration: 1s;
+  animation-delay: .18s;
+}
+.ProjectDataWrp_Scroll_Down_One .SeeMore{
+  animation-name: description-scroll-down-see-more-one;
+  animation-duration: 1s;
+  animation-delay: .18s;
+}
+.ProjectDataWrp_Scroll_Down_Two .SeeMore, .ProjectDataWrp_Scroll_Down .SeeMore{
+  animation-name: description-scroll-down-see-more;
+  animation-duration: 1s;
+  animation-delay: .18s;
+}
+.ProjectDataWrp_Scroll_Down .DescriptionText{
+  animation-name: description-scroll-down-text;
+  animation-duration: 1s;
+  animation-delay: .24s;
+}
+.ProjectDataWrp_Scroll_Down_One .DescriptionText{
+  animation-name: description-scroll-down-text-one;
+  animation-duration: 1s;
+  animation-delay: .24s;
+}
+.ProjectDataWrp_Scroll_Down_Two .DescriptionText{
+  animation-name: description-scroll-down-text;
+  animation-duration: 1s;
+  animation-delay: .24s;
 }
 @keyframes case-scroll-down {
   0% {
@@ -347,7 +400,7 @@
     opacity: 1;
   }
 }
-@keyframes description-scroll-down {
+@keyframes description-scroll-down-ball {
   0% {
     transform: translateY(0);
     opacity: 1;
@@ -369,7 +422,119 @@
     opacity: 1;
   }
 }
-@keyframes description-scroll-down-one {
+@keyframes description-scroll-down-ball-one {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  45% {
+    transform: translateY(-50vh);
+    opacity: 0;
+  }
+  55% {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+  65% {
+    transform: translateY(50vh);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes description-scroll-up-see-more {
+  0% {
+    transform: translate(15px, -20px);
+  }
+  45% {
+    transform: translate(15px, 50vh);
+  }
+  55% {
+    transform: translate(15px, 100vh);
+  }
+  60% {
+    transform: translate(15px, -200vh);
+  }
+  100% {
+    transform: translate(15px, -20px);
+  }
+}
+@keyframes description-scroll-up-see-more-one {
+  0% {
+    transform: translate(15px, -20px);
+  }
+  45% {
+    transform: translate(15px, 50vh);
+  }
+  55% {
+    transform: translate(15px, 100vh);
+  }
+  60% {
+    transform: translate(15px, -200vh);
+  }
+  100% {
+    transform: translate(15px, -20px);
+  }
+}
+@keyframes description-scroll-down-see-more {
+  0% {
+    transform: translate(15px, -20px);
+  }
+  45% {
+    transform: translate(15px, -50vh);
+  }
+  55% {
+    transform: translate(15px, -100vh);
+  }
+  65% {
+    transform: translate(15px, 50vh);
+  }
+  100% {
+    transform: translate(15px, -20px);
+  }
+}
+@keyframes description-scroll-down-see-more-one {
+  0% {
+    transform: translate(15px, -20px);
+  }
+  45% {
+    transform: translate(15px, -50vh);
+  }
+  55% {
+    transform: translate(15px, -100vh);
+  }
+  65% {
+    transform: translate(15px, 50vh);
+  }
+  100% {
+    transform: translate(15px, -20px);
+  }
+}
+@keyframes description-scroll-down-text {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  45% {
+    transform: translateY(-50vh);
+    opacity: 0;
+  }
+  55% {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+  65% {
+    transform: translateY(50vh);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes description-scroll-down-text-one {
   0% {
     transform: translateY(0);
     opacity: 1;
@@ -523,7 +688,7 @@
     opacity: 1;
   }
 }
-@keyframes description-scroll-up {
+@keyframes description-scroll-up-ball {
   0% {
     transform: translateY(0);
     opacity: 1;
@@ -545,7 +710,51 @@
     opacity: 1;
   }
 }
-@keyframes description-scroll-up-one {
+@keyframes description-scroll-up-ball-one {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  45% {
+    transform: translateY(50vh);
+    opacity: 0;
+  }
+  55% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+  65% {
+    transform: translateY(-50vh);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes description-scroll-up-text {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  45% {
+    transform: translateY(50vh);
+    opacity: 0;
+  }
+  55% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+  65% {
+    transform: translateY(-50vh);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes description-scroll-up-text-one {
   0% {
     transform: translateY(0);
     opacity: 1;

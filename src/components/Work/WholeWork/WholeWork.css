@@ -5,6 +5,7 @@
   right: 0;
   bottom: 0;
   overflow-y: auto;
+  background-color: rgba(45,58,60,1);
 }
 .WholeWorkContainer{
 

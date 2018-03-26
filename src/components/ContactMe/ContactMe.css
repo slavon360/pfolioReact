@@ -1,0 +1,50 @@
+.ContactMeWrp{
+  display: inline-block;
+  width: 50%;
+  height: 80%;
+  margin-bottom: -4px;
+  position: relative;
+  background-color: rgb(175, 182, 176);
+  border: 20px solid rgb(186, 195, 187);
+  box-sizing: border-box;
+  position: relative;
+  color: #fff;
+}
+.Head, .Bottom{
+  position: absolute;
+  left: 20px;
+}
+.Head{
+  top:20px;
+  font-size: 17px;
+}
+.Head::after{
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  width: 45px;
+  height: 1px;
+  background: #fff;
+}
+.Bottom{
+  bottom: 20px;
+  font-size: 28px;
+}
+.Question{
+  color: #4E4F51;
+  width: 155px;
+  margin-bottom: 10px;
+}
+.Contact a{
+  color: #fff;
+  text-decoration: none;
+}
+@media screen and (max-width: 768px){
+  .ContactMeWrp{
+    width: 100%;
+    height: 100%;
+  }
+  .Head{
+    top: 65px;
+  }
+}

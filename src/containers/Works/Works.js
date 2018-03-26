@@ -7,6 +7,7 @@ import WorkGrid from '../../components/Work/WorkGrid/WorkGrid';
 import ProjectData from '../../components/Work/ProjectData/ProjectData';
 import ScrollNav from '../../components/Navigation/ScrollNav/ScrollNav';
 import ViewsDpDwn from '../../components/ViewsDpDwn/ViewsDpDwn';
+import ContactMe from '../../components/ContactMe/ContactMe';
 import classes from './Works.css';
 
 class Works extends Component{
@@ -40,38 +41,40 @@ class Works extends Component{
       })
     }
     mouseMoveHandler = (event) => {
-      if (this.props.worksSection.listView){
+      if (this.props.worksSection.listView && (Date.now() - this.state.currentDate > 1500)){
         (this.state.tempYAxis || this.state.tempXAxis) && this.setState({tempXAxis: null, tempYAxis: null});
         this.setState({xAxis: event.screenX, yAxis: event.screenY});
       }
     }
     scrollWorkUp = (worksNumber, event) => {
       //this.mouseMoveHandler(event);
-      this.setState({tempXAxis: event.screenX, tempYAxis: event.screenY}, () => {
-        this.props.onScrollWorkUp(worksNumber);
-      });
+      if (Date.now() - this.state.currentDate > 1000){
+        this.setState({tempXAxis: event.screenX, tempYAxis: event.screenY, currentDate: Date.now()}, () => {
+          this.props.onScrollWorkUp(worksNumber);
+        });
+      }
     }
     scrollWorkDown = (worksNumber, event) => {
       //this.mouseMoveHandler(event);
-      this.setState({tempXAxis: event.screenX, tempYAxis: event.screenY}, () => {
-        this.props.onScrollWorkDown(worksNumber);
-      });
+      if (Date.now() - this.state.currentDate > 1000){
+        this.setState({tempXAxis: event.screenX, tempYAxis: event.screenY, currentDate: Date.now()}, () => {
+          this.props.onScrollWorkDown(worksNumber);
+        });
+      }
     }
     onScrollHandler = (e) => {
-      if (this.props.worksSection.listView && e.deltaY > 0 && Date.now() - this.state.currentDate > 1000) {
-        this.setState({currentDate: Date.now()}, () => {
-            this.scrollWorkDown(this.props.works.length-1, e);
-        })
+      if (this.props.worksSection.listView && e.deltaY > 0) {
+          this.scrollWorkDown(this.props.works.length-1, e);
       }
-      if (this.props.worksSection.listView && e.deltaY < 0 && Date.now() - this.state.currentDate > 1000) {
-        this.setState({currentDate: Date.now()}, () => {
-            this.scrollWorkUp(this.props.works.length-1, e);
-        })
+      if (this.props.worksSection.listView && e.deltaY < 0) {
+          this.scrollWorkUp(this.props.works.length-1, e);
       }
     }
     render(){
       console.log('Works')
       let currentWorkIndex = this.props.currentWorkIndex;
+      let selectedLanguage = this.props.selectedLanguage;
+      let contactMe = this.props.pfolioData[selectedLanguage].menu.Contact.contactMe;
       let works = this.props.works.map((work, index, worksArr) => {
           let currentWork;
           let translateYPosition = this.state.windowHeight * (index - this.props.currentWorkIndex);
@@ -104,7 +107,8 @@ class Works extends Component{
           return currentWork;
       })
       let worksWrpClasses = [classes.WorksWrp];
-      this.props.worksSection.gridView && (worksWrpClasses = [classes.WorksWrpScroll]);
+      this.props.worksSection.gridView && (worksWrpClasses = [classes.WorksWrpScroll]) &&
+      works.push(<ContactMe key={contactMe.contact} contactMe={contactMe}/>);
       return (
               <div
                 className={worksWrpClasses.join(' ')}>
@@ -125,7 +129,8 @@ class Works extends Component{
                   projectInfo={this.props.works[currentWorkIndex]}
                   scrollDown={this.props.scrollDown}
                   scrollUp={this.props.scrollUp}
-                  tempYAxis={this.state.tempYAxis} />
+                  tempYAxis={this.state.tempYAxis}
+                  selectedLanguage={this.props.selectedLanguage}/>
                 <ScrollNav
                   worksSection={this.props.worksSection}
                   worksNumber={this.props.works.length-1}
@@ -142,7 +147,9 @@ const mapStateToProps = (state, ownProps) => {
       currentWorkIndex: state.uireducer.currentWorkIndex,
       scrollDown: state.uireducer.scrollDown,
       scrollUp: state.uireducer.scrollUp,
-      worksSection: state.uireducer.worksSection
+      worksSection: state.uireducer.worksSection,
+      pfolioData: state.dataReducer.pfolioData,
+      selectedLanguage: state.dataReducer.selectedLanguage
     }
 }
 const mapDispatchToProps = (dispatch) => {

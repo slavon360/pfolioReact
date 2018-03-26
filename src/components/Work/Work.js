@@ -3,7 +3,7 @@ import throttle from 'react-throttle-render'
 import classes from './Work.css';
 const work = (props) => {
     let backgroundImg, backgroundImgStyles = {}, frontImg, frontImgStyles = {}, middleImg, middleImgStyles = {},
-    preFrontImg, preFrontImgStyles = {}, containerInnerStyles = {};
+    preFrontImg, preFrontImgStyles = {}, containerInnerStyles = {backgroundColor: props.workData.backgroundColor};
     let WorkWrpClasses = [classes.WorkWrp, classes.WorkWrpNormal];
     !props.workData.zIndex && (WorkWrpClasses = [classes.WorkWrp, classes.WorkWrpSlow]);
     if (props.workData.images.front) {
@@ -90,4 +90,4 @@ const work = (props) => {
           );
 }
 
-export default throttle(150)(work);
+export default throttle(100)(work);
