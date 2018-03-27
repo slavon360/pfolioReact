@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-//import { debounce, throttle } from 'throttle-debounce';
+import Swipeable from 'react-swipeable';
 import * as actions from '../../store/actions/index';
 import Work from '../../components/Work/Work';
 import WorkGrid from '../../components/Work/WorkGrid/WorkGrid';
@@ -27,12 +27,10 @@ class Works extends Component{
       window.addEventListener('resize', this.updateWindowDimensions, true);
     }
     componentWillUnmount(){
-      console.log('WORKS [componentWillUnmount]');
       window.removeEventListener('wheel', this.onScrollHandler);
       window.removeEventListener('resize', this.updateWindowDimensions, true);
     }
     updateWindowDimensions = () => {
-      console.log('updateWindowDimensions')
       this.setState({
         windowWidth: window.innerWidth,
         windowHeight: window.innerHeight
@@ -46,18 +44,24 @@ class Works extends Component{
         this.setState({xAxis: event.screenX, yAxis: event.screenY});
       }
     }
-    scrollWorkUp = (worksNumber, event) => {
-      //this.mouseMoveHandler(event);
+    scrollWorkUp = (worksNumber, event, swipeDump) => {
       if (Date.now() - this.state.currentDate > 1000){
-        this.setState({tempXAxis: event.screenX, tempYAxis: event.screenY, currentDate: Date.now()}, () => {
+        this.setState({
+                        tempXAxis: event.screenX || swipeDump,
+                        tempYAxis: event.screenY || swipeDump,
+                        currentDate: Date.now()
+                      }, () => {
           this.props.onScrollWorkUp(worksNumber);
         });
       }
     }
-    scrollWorkDown = (worksNumber, event) => {
-      //this.mouseMoveHandler(event);
+    scrollWorkDown = (worksNumber, event, swipeDump) => {
       if (Date.now() - this.state.currentDate > 1000){
-        this.setState({tempXAxis: event.screenX, tempYAxis: event.screenY, currentDate: Date.now()}, () => {
+        this.setState({
+                        tempXAxis: event.screenX || swipeDump,
+                        tempYAxis: event.screenY || swipeDump,
+                        currentDate: Date.now()
+                      }, () => {
           this.props.onScrollWorkDown(worksNumber);
         });
       }
@@ -71,7 +75,6 @@ class Works extends Component{
       }
     }
     render(){
-      console.log('Works')
       let currentWorkIndex = this.props.currentWorkIndex;
       let selectedLanguage = this.props.selectedLanguage;
       let contactMe = this.props.pfolioData[selectedLanguage].menu.Contact.contactMe;
@@ -88,15 +91,19 @@ class Works extends Component{
             worksArr[0].translateYPosition = this.state.windowHeight;
           }
           if (this.props.worksSection.listView){
-            currentWork = <Work
-                            tempXAxis={this.state.tempXAxis}
-                            tempYAxis={this.state.tempYAxis}
-                            xAxis={this.state.xAxis}
-                            yAxis={this.state.yAxis}
-                            mouseMove={this.mouseMoveHandler}
-                            translateYPosition={work.translateYPosition}
+            currentWork = <Swipeable
                             key={work.title}
-                            workData={work} />
+                            onSwipedUp={(e) => {this.scrollWorkDown(this.props.works.length-1, e, 50)}}
+                            onSwipedDown={(e) => {this.scrollWorkUp(this.props.works.length-1, e, 50)}}>
+                            <Work
+                              tempXAxis={this.state.tempXAxis}
+                              tempYAxis={this.state.tempYAxis}
+                              xAxis={this.state.xAxis}
+                              yAxis={this.state.yAxis}
+                              mouseMove={this.mouseMoveHandler}
+                              translateYPosition={work.translateYPosition}
+                              workData={work} />
+                          </Swipeable>
           }
           if (this.props.worksSection.gridView){
             currentWork = <WorkGrid
@@ -110,33 +117,33 @@ class Works extends Component{
       this.props.worksSection.gridView && (worksWrpClasses = [classes.WorksWrpScroll]) &&
       works.push(<ContactMe key={contactMe.contact} contactMe={contactMe}/>);
       return (
-              <div
-                className={worksWrpClasses.join(' ')}>
-                {works}
-                <ViewsDpDwn
-                  selectedProp="showDpDwnView"
-                  gridView={this.props.worksSection.gridView}
-                  listView={this.props.worksSection.listView}
-                  showDpDwnView={this.props.showDpDwnView}
-                  showHideViewDpDwn={this.props.onShowHideViewDpDwn}
-                  hideViewDpDwn={this.props.onHideViewDpDwn}
-                  switchToListView={this.props.onSwitchToListView}
-                  switchToGridView={this.props.onSwitchToGridView} />
-                <ProjectData
-                  location={this.props.location}
-                  worksSection={this.props.worksSection}
-                  mouseMove={this.mouseMoveHandler}
-                  projectInfo={this.props.works[currentWorkIndex]}
-                  scrollDown={this.props.scrollDown}
-                  scrollUp={this.props.scrollUp}
-                  tempYAxis={this.state.tempYAxis}
-                  selectedLanguage={this.props.selectedLanguage}/>
-                <ScrollNav
-                  worksSection={this.props.worksSection}
-                  worksNumber={this.props.works.length-1}
-                  scrollWorkDown={this.scrollWorkDown}
-                  scrollWorkUp={this.scrollWorkUp} />
-              </div>
+                <div
+                  className={worksWrpClasses.join(' ')}>
+                    {works}
+                  <ViewsDpDwn
+                    selectedProp="showDpDwnView"
+                    gridView={this.props.worksSection.gridView}
+                    listView={this.props.worksSection.listView}
+                    showDpDwnView={this.props.showDpDwnView}
+                    showHideViewDpDwn={this.props.onShowHideViewDpDwn}
+                    hideViewDpDwn={this.props.onHideViewDpDwn}
+                    switchToListView={this.props.onSwitchToListView}
+                    switchToGridView={this.props.onSwitchToGridView} />
+                  <ProjectData
+                    location={this.props.location}
+                    worksSection={this.props.worksSection}
+                    mouseMove={this.mouseMoveHandler}
+                    projectInfo={this.props.works[currentWorkIndex]}
+                    scrollDown={this.props.scrollDown}
+                    scrollUp={this.props.scrollUp}
+                    tempYAxis={this.state.tempYAxis}
+                    selectedLanguage={this.props.selectedLanguage}/>
+                  <ScrollNav
+                    worksSection={this.props.worksSection}
+                    worksNumber={this.props.works.length-1}
+                    scrollWorkDown={this.scrollWorkDown}
+                    scrollWorkUp={this.scrollWorkUp} />
+                </div>
             );
     }
 }

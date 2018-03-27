@@ -12,19 +12,19 @@ class About extends Component{
       let checkout = pfolioData[curLang].menu.About.checkout;
       let works = pfolioData[curLang].menu.About.works;
       return(
-          <div className={classes.AboutWrp}>
-            <div className={classes.LeftSide}>
-              Slavon360
-            </div>
-            <div className={classes.RightSide}>
-              <h1 className={classes.Greeting}>{greeting1}</h1>
-              <h1 style={{marginTop: '10px'}}>{greeting2}</h1>
-              <h2 className={classes.BriefInfo}>{briefInfo}</h2>
-              <div className={classes.WorksLink}>{checkout}
-                <NavLink to="/works" style={{color: '#fff', textDecoration: 'none'}}> {works}</NavLink>
+            <div className={classes.AboutWrp}>
+              <div className={classes.LeftSide}>
+                Slavon360
+              </div>
+              <div className={classes.RightSide}>
+                <h1 className={classes.Greeting}>{greeting1}</h1>
+                <h1 style={{marginTop: '10px'}}>{greeting2}</h1>
+                <h2 className={classes.BriefInfo}>{briefInfo}</h2>
+                <div className={classes.WorksLink}>{checkout}
+                  <NavLink to="/works" style={{color: '#fff', textDecoration: 'none'}}> {works}</NavLink>
+                </div>
               </div>
             </div>
-          </div>
       )
     }
 }

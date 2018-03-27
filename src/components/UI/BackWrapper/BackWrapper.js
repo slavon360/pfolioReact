@@ -1,4 +1,5 @@
 import React from 'react';
+import Swipeable from 'react-swipeable';
 import classes from './BackWrapper.css';
 
 const backWrapper = (props) => {
@@ -7,7 +8,9 @@ const backWrapper = (props) => {
         attachedClasses = [classes.BackWrapper, classes.BackWrapperActive];
     }
     return (
-            <div className={attachedClasses.join(' ')}>{props.children}</div>
+            <Swipeable onSwipingLeft={props.swipingLeft}>
+              <div className={attachedClasses.join(' ')}>{props.children}</div>
+            </Swipeable>
           )
 }
 

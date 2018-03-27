@@ -55,19 +55,14 @@ class Contact extends Component{
     }
     componentDidMount(){
       this.generateFormDataArr();
-      //this.setState({ clientForms: this.state.clientForms.concat(this.props.clientData) });
-      //this.props.clientData && this.setState({ showSuccessFail: false });
-      console.log('componentDidMount', this.props.clientData, this.state)
     }
     componentWillReceiveProps(nextProps){
       this.props.selectedLanguage !== nextProps.selectedLanguage && this.generateFormDataArr(nextProps.selectedLanguage);
-      console.log(nextProps)
     }
     generateFormDataArr(lang){
       let currentLang = !lang ? this.props.selectedLanguage : lang;
       let contact = this.props.pfolioData[currentLang].menu.Contact;
       let formDataArr = [];
-      console.log(contact)
       for (let key in this.state.formData){
         let data = { ...this.state.formData[key] }, updatedData = {};
             contact[key] && (updatedData = { ...data, ...contact[key] });
@@ -133,7 +128,6 @@ class Contact extends Component{
           value: ''
         }
       })
-      console.log('dropFormValues')
         this.setState({ formDataArr: droppedFormArr, clientData: this.props.clientData });
     }
     componentDidUpdate(){
@@ -141,9 +135,7 @@ class Contact extends Component{
     }
     componentWillUnmount(){
       this.setState({ clientData: null }, () => {
-        console.log('componentWillUnmount', this.state.clientData)
       });
-      //console.log('componentWillUnmount')
     }
     render(){
       let currentLang = this.props.selectedLanguage;

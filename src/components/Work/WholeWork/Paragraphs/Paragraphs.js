@@ -19,7 +19,7 @@ const paragraphs = (props) => {
           <div className={classes.TechValue}>{technologies}</div>
         </div>
         <div className={classes.LinkWrp}>
-          <div>Visit site</div>
+          <div>{props.currentWork.visit}</div>
           <div>
             <a
               href={props.currentWork.link}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Swipeable from 'react-swipeable';
 import Adj from '../Adj/AdjComponent';
 import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer';
 import DrawerToggle from '../../components/Navigation/SideDrawer/DrawerToggle/DrawerToggle';
@@ -10,7 +11,8 @@ import classes from './Layout.css';
 
 class Layout extends Component {
     state = {
-      isWorksPath: false
+      isWorksPath: false,
+      currentDate: Date.now()
     }
     componentDidMount(){
       if (!this.props.menuKeys){
@@ -22,8 +24,17 @@ class Layout extends Component {
       window.location.pathname !== '/works' && this.state.isWorksPath && this.setState({isWorksPath: false});
     }
     shouldComponentUpdate(nextProps, nextState){
-      //console.log('[Layout] shouldComponentUpdate', this.props);
       return true;
+    }
+    swipingRight = (e, absX) => {
+      if (Date.now() - this.state.currentDate > 1500){
+        this.setState({currentDate: Date.now()}, () => { this.props.onOpenMenu() });
+      }
+    }
+    swipingLeft = () => {
+      if (Date.now() - this.state.currentDate > 1500){
+        this.setState({currentDate: Date.now()}, () => { this.props.onCloseMenu() });
+      }
     }
     render(){
       let content = <Preloader />;
@@ -49,11 +60,15 @@ class Layout extends Component {
             <SideDrawer
               openedMenu={this.props.openedMenu}
               menuKeys={this.props.menuKeys}
-              toggleDrawer={this.props.onToggleDrawer}/>
-            <main
-              className={wrpClasses.join(' ')}>
-              {this.props.children}
-            </main>
+              toggleDrawer={this.props.onToggleDrawer}
+              swipingLeft={this.swipingLeft} />
+              <Swipeable
+                onSwipingRight={this.swipingRight}>
+                <main
+                  className={wrpClasses.join(' ')}>
+                  {this.props.children}
+                </main>
+              </Swipeable>
           </Adj>
         )
       }
@@ -77,6 +92,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
       onToggleDrawer: () => dispatch(actions.toggleDrawer()),
+      onOpenMenu: () => dispatch(actions.openMenu()),
+      onCloseMenu: () => dispatch(actions.closeMenu()),
       onfetchPfolioData: () => dispatch(actions.fetchPfolioData()),
       onSelectLanguage: (lang) => dispatch(actions.selectLanguage(lang)),
       onShowHideViewDpDwn: (propName) => dispatch(actions.showHideViewDpDwn(propName)),

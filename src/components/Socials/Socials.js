@@ -64,9 +64,6 @@ class Socials extends Component{
         !this.state[element] && this.setElementParams(event, element);
         this.state[element] && this.setElementPosition(event.screenX, this.state[element], element);
       }
-      componentDidUpdate(){
-        console.log('updated!!!!!')
-      }
       render(){
         let contact = this.props.contact;
         let facebookClasses = this.state.Facebook ? this.state.Facebook.classNames : [classes.Facebook];

@@ -1,5 +1,7 @@
 export {
         toggleDrawer,
+        openMenu,
+        closeMenu,
         scrollWorkUp,
         scrollWorkDown,
         switchToGridView,

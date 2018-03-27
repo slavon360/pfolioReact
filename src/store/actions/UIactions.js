@@ -5,6 +5,16 @@ export const toggleDrawer = () => {
       type: actionTypes.DRAWER_TOGGLE
     }
 }
+export const openMenu = () => {
+    return {
+      type: actionTypes.OPEN_MENU
+    }
+}
+export const closeMenu = () => {
+    return {
+      type: actionTypes.CLOSE_MENU
+    }
+}
 export const scrollWorkUp = (worksNumber) => {
     return {
       type: actionTypes.SCROLL_WORK_UP,
@@ -28,7 +38,6 @@ export const switchToListView = () => {
     }
 }
 export const showHideViewDpDwn = (propName) => {
-    console.log('showHideViewDpDwn')
     return {
       type: actionTypes.SHOW_HIDE_VIEW_DP_DWN,
       propName: propName

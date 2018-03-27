@@ -21,6 +21,20 @@ const toggleDrawer = (state) => {
       handClosedMenu: !!state.openedMenu
     }
 }
+const openMenu = (state) => {
+    return {
+      ...state,
+      openedMenu: true,
+      handClosedMenu: !!state.openedMenu
+    }
+}
+const closeMenu = (state) => {
+    return {
+      ...state,
+      openedMenu: false,
+      handClosedMenu: !!state.openedMenu
+    }
+}
 const scrollWorkDown = (state, action) => {
     let currentIndex = state.currentWorkIndex, worksNumber = action.worksNumber;
     currentIndex+=1;
@@ -75,6 +89,10 @@ const reducer = (state = initialState, action) => {
     switch (action.type) {
       case actionTypes.DRAWER_TOGGLE:
         return toggleDrawer(state);
+      case actionTypes.OPEN_MENU:
+        return openMenu(state);
+      case actionTypes.CLOSE_MENU:
+        return closeMenu(state);
       case actionTypes.SCROLL_WORK_DOWN:
         return scrollWorkDown(state, action);
       case actionTypes.SCROLL_WORK_UP:

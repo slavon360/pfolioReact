@@ -23,6 +23,9 @@
   outline: none;
   padding: 0;
 }
+.ViewsDpDwnSelected > div{
+  background-color: transparent;
+}
 .ViewsDpDwnOptions{
   position: absolute;
   height: 70px;

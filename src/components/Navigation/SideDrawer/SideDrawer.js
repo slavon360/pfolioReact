@@ -9,7 +9,9 @@ const sideDrawer = (props) => {
       attachedClasses = [classes.SideDrawerContent, classes.SideDrawerContentActive];
     }
     return (
-      <BackWrapper openedMenu={props.openedMenu}>
+      <BackWrapper
+        openedMenu={props.openedMenu}
+        swipingLeft={props.swipingLeft}>
         <div className={attachedClasses.join(' ')}>
           <NavigationItems
             openedMenu={props.openedMenu}

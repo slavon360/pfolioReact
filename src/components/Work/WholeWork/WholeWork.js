@@ -27,12 +27,10 @@ class WholeWork extends Component{
         window.removeEventListener('resize', this.updateWindowDimensions, true);
       }
       updateWindowDimensions = () => {
-        console.log('updateWindowDimensions')
         this.setState({
           windowWidth: window.innerWidth,
           windowHeight: window.innerHeight
         }, () => {
-          console.log('onScrollWorkWrp()')
           this.onScrollWorkWrp();
         })
       }
@@ -41,7 +39,7 @@ class WholeWork extends Component{
         let scrollDownLimit = this.state.topPosition * (-1) > this.state.windowHeight;
         let topPosition = this.state.yPosition - currentYPosition;
         this.setState({
-                        topPosition: topPosition > 0 ? -topPosition : topPosition, 
+                        topPosition: topPosition > 0 ? -topPosition : topPosition,
                         scrollDownLimit: scrollDownLimit
                       });
       }

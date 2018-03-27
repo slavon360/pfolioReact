@@ -11,16 +11,13 @@ class ProjectData extends Component {
     }
     componentWillReceiveProps(nextProps){
       this.props.selectedLanguage !== nextProps.selectedLanguage && this.setState({currentProjectInfo: nextProps.projectInfo});
-      if (this.props.projectInfo.title !== nextProps.projectInfo.title){
-        window.setTimeout(() => {this.setState({currentProjectInfo: nextProps.projectInfo})}, 500);
+      if (this.props.projectInfo && nextProps.projectInfo && this.props.projectInfo.title !== nextProps.projectInfo.title){
+        window.setTimeout(() => {this.setState({currentProjectInfo: nextProps.projectInfo})}, 700);
       }
     }
     shouldComponentUpdate(nextProps, nextState){
       let languageUpdated = this.props.selectedLanguage !== nextProps.selectedLanguage;
       return this.props.tempYAxis > 0 || this.props.worksSection.gridView || languageUpdated;
-    }
-    componentDidUpdate(){
-      console.log('ProjectData updated', this.props)
     }
     render(){
       let scrollUp = this.props.scrollUp, scrollDown = this.props.scrollDown;

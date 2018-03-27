@@ -77,7 +77,6 @@ export const submitClientData = (clientData) => {
         dispatch(submitClientStart());
         axiosPfolio.post('/clients.json', clientData)
                     .then(response => {
-                      console.log(response.data)
                       dispatch(submitClientDataSuccess(clientData));
                       window.setTimeout(() => {
                         dispatch(hideSuccessIcon());
