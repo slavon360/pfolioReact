@@ -114,8 +114,8 @@ class Works extends Component{
           return currentWork;
       })
       let worksWrpClasses = [classes.WorksWrp];
-      this.props.worksSection.gridView && (worksWrpClasses = [classes.WorksWrpScroll]) &&
-      works.push(<ContactMe key={contactMe.contact} contactMe={contactMe}/>);
+      this.props.worksSection.gridView && (worksWrpClasses = [classes.WorksWrpScroll]);
+      this.props.worksSection.gridView && works.length%2 !== 0 && works.push(<ContactMe key={contactMe.contact} contactMe={contactMe}/>);
       return (
                 <div
                   className={worksWrpClasses.join(' ')}>
